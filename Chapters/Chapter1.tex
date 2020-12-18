@@ -417,9 +417,8 @@ We couln't and wouln't try to make a full description of the vast plethora of me
 Heterogeneity in experimental procedures might account for some of the discrepancies in the literature.
 But we hope we've built so far the case that astrocytes, and in particular astrocytic $Ca^{2+}$ dynamics, is involved and regulates the way the brain process information.
 It does so at the level of the synapses, in single cells, and at the network scale.
-That this interactions go both ways, with astrocytes modulating neuronal dynamics but also neuronal 
-activity interfering in astrocytic profiles.
-That the complexity and richness of this modulation extendes not only to the spatial domain but also at the temporal scale, with small fast and local interactions as well as large waves of activity spaning whole brain regions.
+That this interactions go both ways, with astrocytes modulating neuronal dynamics but also neuronal activity interfering in astrocytic profiles.
+That the complexity and richness of this modulation extends not only to the spatial domain but also at the temporal scale, with small fast and local interactions as well as large waves of activity spanning whole brain regions.
 And more important that when studying the way the brain solves a task, considering only neuronal networks might not be enough, and a shift in the paradigm towards the study of an extended neuronal-glial networks might be needed. 
 
 % =========================================================== %
@@ -427,30 +426,85 @@ And more important that when studying the way the brain solves a task, consideri
 % =========================================================== %
 \subsection{Astrocytes accumulate evidence}
 \label{chap1:sec:2:subsec4:astro_evidence}
-So far we have been dealing with how astrocytes can be involve the way in which neurons process information, but a parallel and relevant question is if and how astrocytes process information themselves. 
+So far we've discuss how astrocytes are involved in the way in which neurons process information, focusing mainly in the mechanisms by which such interactions might take place.
+However, to further develop the idea of the brain acting as an extended network of both neurons and glial cells during the processing of information, we are inclined to ask the complementary question whether astrocytes or astrocytic networks process information themselves, and if so, how. 
 
-Refer to paper from \textit{Misha Harens}
+The pursuit of the answer to this question has produced very recent findings that bring some light to the matter, as well as pose more questions. 
+Misha Ahrens group studied the interplay off astrocytic and neuronal networks during swimming adaptation strategies and information integration in larval zebra fish [Yu Mu, et al., 2019]. 
+In this task animals were exposed to a virtual reality environment where visual feedback was eventually decoupled from motor actions so that the swim behaviour would fail to trigger the expected visual flow. 
+The animals, after becoming aware of the futility of their efforts would became passive and stop motion, to then try again a few seconds later. 
+When animals switched from the active to the passive behavioral state, whole-brain average neuronal activity decreased while glial activity increased. 
+In this case, activity refers to $Ca^{2+}$ transients that started seconds before and peak after passivity onset. 
 
+The availability of chemical, optical and genetic tools allows interventional approaches that can test this hypothesis from a causal point of view. 
+Reduction of astrocytic $Ca^{2+}$ activity by two-photon laser ablation of glial cells or blocking the inositol 1,4,5-trisphosphate receptor to reduce Ca2+ release from intracellular stores, led to a reduction in  futility-induced passivity. 
+Using a chemogenetic approach to increase intracellular $Ca^{2+}$ in glia on the other hand led to an increase in the time spent in passive state. 
+This effect was temporally tuned as shown by optogenetic activation (either using CoChR or Opto-a1-AR). 
+Which suggests that astrocytic $Ca^{2+}$ are necessary and sufficient for the expression of this behavior. 
 
+Interestingly, the way astrocytes exert this effect on behavior is achieved through a finely tuned interplay between neuronal and astrocytic networks. 
+More precisely during futility-induced passivity, signals from noradrenergic (NE) neurons together with local circuit activity triggered glia responses as proved by optogenetically activating NE neurons. 
+Showing that astrocytes integrate both behavioral information as well as NE signals.
+Astroyctes, in turn, activated GABAergic neurons that would most likely supress swimming. 
+
+The question that interests us the most is what is the \textit{information} processing that is done in each step of this complex behavior by each element of the network? 
+Through a series of interacted but very elegant probabilistic experiments, the group demonstrated that NE neurons signals encode sensory-motor mismatch signal.
+Signals that are transmitted to astrocytes that in turn \textit{accumulate evidence} that actions are futile and control, through GABAercig neurons, swimming behavior. 
+
+This example beautifully puts together several of the functions and characteristics of astrocytes discussed previously in a orchestrated mechanisms with a behavioural output with high level of complexity. 
+It shows in a physiological and behavioural relevant way, how astrocytes are involved in network state changes, how they integrate neuronal activity, modulate downstream circuits, influence behavior and imporatntly, process information in complex and functional ways.  
+It evidences how to uncover the underlying functional role of astrocytes it is sometimes necessary to see the big picture and perform experiments and tasks closer to ethological behaviours.  
+
+Only days ago, another elegant example of how astroyctes are involved in complex behavior modulation has been published [Seungwoo Kang, 2020]. 
+The group showed that in mice, astrocytes from the dorsomedial striatum differentially regulate medium spiny neurons activity facilitating shifts from habitual to goal-directed reward-seeking behavior.
+And they do so by tuning excitatory and indirect inhibitory postsynaptic currents in neurons, process regulated by adenosine metabolism, receptor signaling, and transport. 
+This examples manifest, however, the complexities of the experimental procedures needed for proper understanding of network functioning during complex behaviors \textit{in vivo}.
 % ================================================================ %
 % Section: Astrocytes encode spatial information in Ca2+ activity  %
 % ================================================================ %
 \section{Astrocytes encode spatial information in $Ca^{2+}$ activity}
 \label{chap1:sec3:astro_spat_info}
+Finally we'll summarize recent unpublished work from our lab, that settled the basis for the work in this thesis.
+As we've seen, astroyctes are involved in the processing of information in the brain both by encoding specific aspects of behavioural variables and the relation with the environment and by interacting with neurona networks. 
+Astrocytes and their interactions with neurons have been extensively studied in the hippocampus [Perea and Araque, 2007, Pascual et al., 2005; Serrano et al., 2006; Andersson, Blomstrand and Hanse, 2007; Chen et al., 2013, Covelo and Araque, 2018], however as discussed in the first part of this introduction, one of the most interesting and thoroghly studied functions of hippocampal netorks is the encoding of spatial information and the building of a cognitive map for spatial navigation.
+The question whether hippocampal astroctyes intervene, alter or modulate spatial information encoding in neurons or more fundamentally if navigational information is encoded exclusively in neuronal cells or it involves the extended brain network comprising glial cells as well as neurons had not been elucidated to date. 
+Our lab has tackled this question by specifically asking how astrocytic calcium signaling relates to spatial navigation, with the working hypothesis that astrocytes encode navigational information in their intracellular calcium dynamics. 
 
+There are, however, a few remarks that are needed to understand the following results and the research exposed in this thesis.
+So far we have been talking about \textit{information}, \textit{information flow} or \textit{encoding of information} in a rather loose way, without defining what we really mean. 
+However, throughout this work, \textbf{information} will have a very well defined and concrete mining, and that is the one established by \textit{information theory}.
+
+There are known perks of treating calcium or in general neuronal activity with information theory approaches.
 % =========================================================== %
 %        Subsection: Astrocytes and information               %
 % =========================================================== %
 \subsection{Astrocytes and information}
 \label{chap1:sec:3:subsec1:astro_info}
-Treating astrocytes $Ca^{2+}$ activity with Information theory approaches
+In the context of information theory, the first question was whether astrocytes encode information about the position of the animal.
+To answer this question, mice where trained to run head-fixed in a virtual reality corridor [Gauthier and Tank 2018].
+Using astrocyte-specific expression of the genetically encoded calcium indicator GCaMP6f [Chen; Khakh] together with two-photon functional imaging to capture subcellular calcium dynamics of hippocampal CA1 astrocytes, it was found that that a fraction of astrocytic regions of interest (ROIs) carried significant information about the spatial position of the animal in the virtual track.
+In this context \textit{significant amount of information} relates to how the mutual information value relates to surrogate distributions of MI values build by temporally shuffling the data (see methods for details). 
+Broadly speaking, this are astrocytes express calcium activity that could be interpreted as the glial analogous to the spiking activity of place cells, in this context it is adequate to define the spatial response field of the informative astrocytes and study their characteristics.
+It was shown that the distribution of field positions covered the entire length of the virtual corridor, suggesting a full map of the environment, done by astrocytes, parallel (or complementary) to that of the neuronal network.
+Similar to neurons, when exposed to a bidirectional environment, astrocytic ROIs showed significant direction selective spatial modulation in their response field.
+
+Following the discussion from previous sections, it is interesting to see if this coding is intrinsic to astrocytic processes, somas or both. 
+It was found that both cell bodies and processes encoded spatial information and that a larger fraction of somas than processes were modulated by the spatial position of the animal.
+Unlike neurons, the preferred position of astrocytes was not entirely random.
+This was observed first because correlation between the calcium activity of pairs of informative ROIs decreased as a function of the pair distance.
+And second, because the difference between the field position of the two informative ROIs in a given pair increased as a function of the pair distance within $0-40 \mu m$ and reached a constant value, indicating that informative calcium signals were coordinated across cells.
+Similarly, when looking at the single cell level, the difference between the field position of an informative process and the corresponding somas increased as a function of the process distance from soma, demonstrating that spatial information is differentially encoded in topological distinct locations of the same astrocyte. 
 
 % =========================================================== %
 %             Subsection: Decoding of position                %
 % =========================================================== %
 \subsection{Decoding of position}
 \label{chap1:sec:3:subsec2:position_decoding}
-
+We've seen that astrocytes encode spatial information in the hyppocampus, and that a complete map (at least in a uni-dimensional virtual track) could be extracted from the network, meaning that the place fields of all astrocytes observed span the whole space. 
+However is there sufficient information about space in the astrocytic network to infer the animals position? 
+To answer this question a suport vector machine (SVM) was trained solve the classification problem of decoding mouse's position using single-trial astrocytic calcium signals according to a set of discrete locations. 
+The decoder accuracy, that is how many times the decoder correctly classify the position of the mouse, was significantly above chance level, regardless of the granularity used in the space domain. 
+This is important because it means that a downstream neuron (or network) would be able to decode animals position by integrating astrocytic calcium transients information, suggesting the behavioral relevance of it. 
 % =========================================================== %
 %                    Subsection: Page Margin                  %
 % =========================================================== %
