@@ -472,9 +472,113 @@ Our lab has tackled this question by specifically asking how astrocytic calcium 
 
 There are, however, a few remarks that are needed to understand the following results and the research exposed in this thesis.
 So far we have been talking about \textit{information}, \textit{information flow} or \textit{encoding of information} in a rather loose way, without defining what we really mean. 
-However, throughout this work, \textbf{information} will have a very well defined and concrete mining, and that is the one established by \textit{information theory}.
+However, throughout this work, \textbf{information} will have a very well defined and concrete meaning, and that is the one established by \textbf{information theory}.
+We'll explain these concepts in the next few paragraphs.
 
-There are known perks of treating calcium or in general neuronal activity with information theory approaches.
+Information theory was first developed by C. E. Shannon and beautifully exposed in his landmark paper \textit{A Mathematical Theory of Communication} [Shannon 1948].
+In it, Shannon develops a mathematical formalism of communications, considering the coding an decoding problem of information in noisy channels.
+This theory has extended to many fields with several practical and theoretical applications, notably modern computation, quantum mechanics, quantum computation and neuroscience.
+There are several ways of approaching the notion of information as in Shannons theory, we will expose a modified version of the one exposed in his paper.
+We'll take his approach first because it relates information to probability distributions in an intuitive way which is what we need, second because of its comprehensibility and third because, in a slightly more abstract sense, the brain can be thought as a noisy communication network, with neurons being both transmitters and receivers.
+However, it's useful to keep in mind what's the objective, what is it that we are trying to use information theory for. 
+The question we'll try to answer is: if we look at neuronal activity, how much information do we gain from a certain behavioral variable (for example the position of the animal)? 
+
+Lets try to formalize the problem: neurons can be in several states, depending on how we describe them. 
+We can think of a neuron as a variable with two states, either firing or not, or with a continuum of states, like all the possible values of its membrane potential or of the calcium concentration inside the cell.
+Lets consider then in a general way that each state of the neuron has a certain probability, namely state $x$ has probability $p_x$ of occurring.
+When we observe a neuron we gain information about its state, the neuron was either firing or not. 
+However before measuring it we can ask the question of \textbf{how uncertain we are about the state of the neuron if we know the set of probabilities $\{p(x)\}$}.
+This is equivalent to asking the question of \textit{how much} information we gain when we learn the state of the neuron. 
+In this example we are using the state of a neuron, but the approach is general to any probability distribution.
+To answer a 'how much' question (either uncertainty we have or information we gain) we need a quantitative measure, lets call this measure $H$.
+There are three rather reasonable properties that we'd like to ask of $H$:
+\begin{itemize}
+    \item \textbf{$H$ should be a function only of the probabilities}, it doesn't matter if it's neuron 1, 2 or Z, if it's a principal neurons or an interneuron (or an astrocyte) as long as the probabilities of its states are the same, therefore we can write $H(p_x)$.
+    And \textbf{$H$ should be continuous in $p_x$}.
+    \item If all the events are equally possible, that is $p_i=\frac{1}{n}$ with $n$ the amount of states, then \textbf{$H$ should be a monotonic increasing function of $n$}.
+    Intuitively, if there are more possible states, and all the states are equally possible, there is more uncertainty.
+    \item The information gained when two independent events occur with individual probabilities $p$ and $q$ is the sum of the information gained from each event alone.
+\end{itemize}
+It can be proved that the only $H$ that satisfies all three properties is of the form: 
+\begin{equation}
+    H=-K \sum_{x=1}^n p_x\ log (p_x)
+\end{equation}
+with $K$ a positive constant that amounts only to the choice of units of measure.
+This expression might ring a bell for those who have studied statistical mechanics, $H$ is nothing but the \textbf{entropy}. 
+We select the logarithm to be in base $2$ (all logarithms in this thesis will be in base $2$ unless otherwise specified), which is achieve by appropriately selecting the constant $K$, and define the entropy of the probability distribution $p_1,p_2,...,p_n$ of an n state variable as:
+\begin{equation}
+    H=- \sum_{x=1}^n p_x\ log_2 (p_x)
+\end{equation}
+This definition is intuitive but is not the whole story. Probably the best reason to define entropy in this way is because it can be used to \textit{quantify the resources needed to store information}. 
+It can be proved that Shannon's entropy represents the minimal physical resources required to store the information being produced by a source, in such a way that at a later time the information can be reconstructed.
+This result is known as the \textit{Shannon’s noiseless coding theorem}.
+
+It might be useful to build a toy example to illustrate some of the properties of $H$. Lets consider an overly simplified neuron with two possible states, it can be either firing or not. It fires with probability $p$ and is silent with probability $q=1-p$, then its entropy is given by
+\begin{equation}
+    H=-(p\ log (p) + (1-p)\ log (1-p))
+\end{equation}
+We can see the values of $H$ as function of $p$ in the figure [FIGURE].
+If the neuron would always be silent and never fire, we'd have no uncertainty of its state and we would gain no information by measuring its state.
+In this example that is represented by $p=0$ and therefore $H=0$.
+If, on the other hand, the neuron would fire randomly half of the time, we would have absolute uncertainty about its state before measuring and therefore we'll gain the maximum amount of information after measurement.
+That is, its probability of firing would be $p=0.5$ and the entropy would be $H=1$, meaning that knowing the state of the neuron gives us $1$ bit of information.
+In general we have that $H=0$ if and only if all $p_i=0$ except one that is $1$, and the uniform distribution is the probability distribution with maximum entropy and the entropy is the logarithm of the number of states.
+That is $H=log(n)$ and is maximum if and only if $p_i=\frac{1}{n} \; \forall \ i$.
+
+Now, before we tackle the question that brought us to this point to begin with, we have to define other important quantities from the theory.
+Let's say we have another variable with its own states and probability distribution ${p(y)}$, that can represent another neuron, or set of neurons, or a behavioral variable like the position of the animal. 
+We define the \textbf{joint entropy} of variables $X$ and $Y$ as
+\begin{equation}
+    H(X,Y)\equiv-\sum_{x,y}p(x,y)\ log(p(x,y)) 
+\end{equation}
+The joint entropy measures our total uncertainty about the pair $(X,Y)$.
+Now, suppose we learn the value of $Y$, meaning that we gained $H(Y)$ bits of information about the pair $(X,Y)$.
+How much uncertainty remains about the pair $(X,Y)$? 
+Or in other words, how uncertain are we about $X$, given that we know the value of $Y$?
+This quantity is called the \textit{entropy of $X$ conditional on knowing $Y$} and is defined as
+\begin{equation}
+\label{eqn:condentropy}
+    H(X\ |\ Y) \equiv H(X,Y)-H(Y)
+\end{equation}
+Now we have everything we need to define the quantity that would answer our initial question that was: if we look at neuronal activity, how much information do we gain from a certain behavioral variable (for example the position of the animal)? 
+We can reformulate this question into an analogous form and ask, how much information is shared between neuronal activity and the behavioral variable?
+In a general way, lets consider two variables $X$ and $Y$, suppose we add the information content of $X$, $H(X)$ to the one of $Y$.
+If there's information shared in the two variables, then we will be counting it twice, and information that is not common will be counted only once. 
+So if we subtract then the total amount of information of the pair, which is nothing but the joint entropy $H(X,Y)$ what will remain is the common or the \underline{\textbf{mutual information}} of $X$ and $Y$:
+\begin{equation}
+\label{eqn:mutualinfo1}
+    I(X:Y)\equiv H(X)+H(Y)-H(X,Y)
+\end{equation}
+In the last paragraph we have been using \textit{information} and entropy as interchangeable concepts.
+That is because, as we say at the beginning of this section, entropy quantifies the amount of uncertainty about a variable before knowing its state or equivalently, how much \textit{information} we gain when we measure its state.
+However, we could arrive to the expression for mutual information in a slightly different but equivalent way that might be more reassuring about the use of the term \textit{information}.
+Recall that \textit{conditional entropy} $H(X\ |\ Y)$ represents the uncertainty that remains in $X$ given that we learned the value of $Y$.
+Thus, the complement of the uncertainty that remains is the \textit{information we gained} about $X$ by knowing $Y$. Formally, we can define \textit{mutual information} then as 
+\begin{equation}
+\label{eqn:mutualinfo2}
+    I(X:Y)\equiv H(X) - H(X\ |\ Y)
+\end{equation}
+The equivalency of this of expressions \ref{eqn:mutualinfo1} and \ref{eqn:mutualinfo2}
+is trivially shown simply by replacing \ref{eqn:condentropy} in \ref{eqn:mutualinfo1}.
+The various definitions and relationships between entropies might be difficult to picture or remember. 
+A useful way of visualizing them is using the 'entropy Venn diagram' shown in figure [FIGURE], which is not completely reliable as a guide of the properties of entropy but can provide a comprehensible mnemonic. 
+
+Information theory has been widely used and studied in neuroscience.
+With works as early as Richmond and Optican in the 1990 [Richmond and Optican, 1990] on the primate visual cortex or Skaggs formula for spiking activity in 1993 [Skaggs et al., 1990].
+There are several reasons for the success and usefulness of information theory approaches in for studying the brain.
+First, information theory is model independent, in the sense that we are not required to explicitly specify what is our model of the interaction between the variables of our system.
+This does not mean that information theory is \textit{assumptions} free, in general there are several assumptions we have to do about the data, for example it is required to assume the data to be stationary, i.e. if a neuron is encoding information about a behavioral variable at the beginning of the experiment, it will do so at the end.     
+Second, because of its probabilistic nature, information theory is applicable regardless of the data type, meaning that we can use it if one of the variables is represented by binary signal like the case of spikes in a neuron, or if its the continuous variable of speed of an animal in $cm/s$.
+Third, information theory can uncover non-linear relations between variables.
+And finally, all the expressions the presented so far are easily scalable to many variables, therefore applicable to many neurons or a neuron and several behavioral variables, etc. 
+
+As with anything in life, it does come with its perks and considerations and has to be used with care and a proper understanding of the tools.
+This is particularly true when dealing with real data, because, although very solid and versatile in its formalism, information theory requires the knowledge of the underlying probability distributions of the variables, which is never really known. 
+Probably the stronger assumption that we do then to use information theory for real data is that we can get an empirical approximation of the underlying probability distribution, and that it is a good approximation. 
+The bias implied by using empirical probability distributions has been extensively studied and several alternatives for correcting such bias have been proposed [Panzeri et al., 2007, Panzeri and Treves 1995].
+
+Information theory approaches have been traditionally used for studying spiking trains, and therefore electrophysiological data [Skaggs 1993].
+However as we said before, this approach can be used regardless of the nature of the data types, more recently it has been used for analyzing information content and correlations in calcium activity as recorded by 2-photon imaging [Shuman et al., 2020, Stefanini et al., 2020, Rubin et al., 2015, Sheintuch et al., 2017] 
 % =========================================================== %
 %        Subsection: Astrocytes and information               %
 % =========================================================== %
