@@ -1,8 +1,8 @@
-% Chapter 2
+% Chapter 3
 
 \chapter{Materials and Methods} % Main chapter title
 
-\label{Chapter3} % For referencing the chapter elsewhere, use \ref{Chapter2} 
+\label{Chapter3} % For referencing the chapter elsewhere, use \ref{Chapter3} 
 
 % =========================================================== %
 %          Subsection: Experimental procedures                %
@@ -38,7 +38,7 @@ Then each concatenated recording was motion corrected to compensate for unwanted
 For each frame of the movie, motion correction estimates a translation that minimizes the difference between the transformed frame and the reference frame, using an image registration method described in \textit{REF [Thevenaz1998]}. \\
 Then the fluorescence in each pixel was normalize by the average fluorescence across frames to obtain the $\Delta F/F$, so that it represents a deviation or change from a baseline.  
 \subsection{2-photon imaging}
-\label{chap3:sec:2:subsec1:2p-pre-proc}
+\label{chap3:sec:2:subsec2:2p-pre-proc}
 Data extracted using 2-photon microscopy produces t-series consisting of sequential \textit{.tiff} images. 
 All images corresponding to a t-series were first concatenated to produce an \textit{.avi} video with no compression. \\
 Motion corrected was then performed using the \textit{NoRMCorre} algorithm \textit{(REF Pnevmatikakis and Giovannucci, 2017)}, that corrects non-rigid motion artifacts by estimating motion vectors with subpixel resolution over a set of overlapping patches within the FOV. 
