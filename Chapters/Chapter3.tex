@@ -9,89 +9,306 @@
 % =========================================================== %
 \section{Experimental procedures}
 \label{chap3:sec:1:exp_proc}
-How was the experiment performed? (briefly) animals, surgeries, 1p/2p imaging.
+\subsection{Animals}
+All experiments involving animals were approved by the National Council on Animal Care of the Italian Ministry of Health and carried out in accordance with the guidelines established by the European Communities Council Directive authorization (61/2019-PR). 
+From postnatal days 30, animals were separated from the original cage and group housed (2–5 per cage) in a 12-hours light-dark cycle with \textit{ad libitum} access to food and water. 
+Only animals older than 10 weeks underwent experimental procedures. 
 
+\subsection{AAV injection and chronic hippocampal window surgery}
+I NEED THE INFO ABOUT THE GCAMP INJECTION IN NEURONS AND CNO
+gcamp 1/5 and dread 1/8 check with sara
+
+Male C57Bl6/j mice were placed into a stereotaxic apparatus (Stoelting Co, Wood Dale, IL), maintained on a warm platform at $37^{\circ}$C and anesthetized with 2\% isoflurane/0.8\% oxygen. 
+Before surgery, a bolus of Dexamethasone (4 mg/kg, Dexadreson, MSD Animal Health, Milan, Italy) was provided with an intramuscular injection. 
+A 0.5 mm craniotomy was drilled on the right hemisphere (1.75 mm posterior, 1.35 mm lateral to bregma) after scalp incision. 
+A micropipette loaded with AAV was then lowered into the CA1 region of the hippocampus (1.40 mm deep to bregma). 
+800 nl of AAV solution was injected at 100 nL/min using a hydraulic injection apparatus driven by a syringe pump (UltraMicroPump, WPI, Sarasota, FL). 
+After viral injection, a stainless-steel screw was positioned on the cranium of the left hemisphere and a chronic hippocampal window was implanted following (\cite{dombeck2010}, \cite{sheffield2015}). 
+A 3 mm craniotomy centered at coordinates 2.00 mm posterior and 1.80 mm lateral to bregma was opened using a drill and the dura was removed using fine forceps. 
+A blunt needle coupled to a vacuum pump was used to carefully aspirate the cortical tissue overlaying the hippocampus. 
+Exposed tissue was continuously irrigated during aspiration with HEPES-buffered artificial cerebrospinal fluid (ACSF). 
+Aspiration was interrupted when the thin fibers of the external capsule were visible. 
+After which a cylindrical cannula-based optical window was positioned at the craniotomy touching the external capsule. 
+A thin layer of silicone elastomer (Kwik-Sil, World Precision Instruments, Sarasota, FL) was used to fill and isolate the space between the steel surface of the optical window and the brain tissue. 
+Epoxy glue was used to attach a custom stainless-steel headplate to the skull.
+Black dental cement was used to secure each component in place.
+An intraperitoneal bolus of antibiotic (BAYTRIL, Bayer, Germany) was administrated to animals after surgery.
+
+Optical windows consist of stainless-steel cannula segment with thin walls (OD, 3 mm; ID, 2.77 mm; height, 1.50 - 1.60 mm). 
+At one end of the cannula a 3.00 mm diameter round coverslip was attached by means of UV curable optical epoxy (Norland optical adhesive 63, Norland, Cranbury, NJ). 
+Bonding residues and Edges were smoothed with a diamond coated cutter.
+
+\subsection{Two-photon imaging}
+Two-photon calcium imaging was performed using a Ultima Investigator or a Ultima II scanheads (Bruker Corporation, Milan, Italy) equipped with raster scanning galvanometers (6 mm or 3 mm) a 16x/0.8 NA objective (Nikon, Milan, Italy), and multi-alkali photomultiplier tubes. 
+For GCaMP6f imaging, the excitation pulsed laser sources were either a Chameleon Ultra or a Chameleon Ultra II, both tuned at 920 nm (80 MHz repetition rate, Coherent, Milan, Italy).
+Before every experimental session, each FOV was imaged at 740 nm to confirm the expression of DREADD encoding AAV. 
+Laser beams intensity was adjusted using Pockel cells (Conoptics Inc, Danbury, USA).
+Imaging average power at the objective outlet was $\sim 80-110 mW$. 
+Fluorescence emission was collected by multi-alkali PMT detectors downstream of appropriate emission filters (525/70 nm for GCaMP6f, 595/50 nm for red reporter fluorophores). 
+Detector signals were digitalized at 12 bits. 
+Here write about the two modalities normal and long
+Normal 
+Imaging sessions were conducted in raster scanning mode at $\sim 3$ Hz using 5x optical zooming factor. 
+Images contained 256 pixels x 256 pixels field of view (pixel dwell-time, $4 \mu s$; Investigator: pixel size, $0.634 \mu m$; Ultima II: pixel size, $0.509 \mu m$).
+Long
+...
+\subsection{Animal habituation}
+After 7-14 days from surgery, animals were subjected to water restriction and delivered 1 ml of water per day.
+Mouse weight was monitored on a daily basis in order to be maintain between 80 \% and 90 \% of the \textit{ad libitum} weight through the complete length of the experiments. 
+A minimum of two sessions of \enquote{handling} (mouse habituation to the experimenter) was performed two days after water scheduling. 
+Mice were then habituated to the VR setup in the following training sessions. 
+This was achieved by head-restraining the animals for progressively longer periods in the span of approximately one week until reaching 1 hour. 
+In each training/habituation session mice were simultaneously exposed to the noise generated by the two-photon imaging setup (galvanometer scanning noise, shutter noise), even when no imaging was taking place for noise habituation.
+Training in the setup was performed until animals felt comfortable enough as to routinely ran along the linear track. 
+On experimental days, mice were head-tethered, and VR session begun after a suitable FOV was identified. 
+3 to 6 temporal series (750 frames/series, $\sim 250 s$), interleaved by 5 minutes breaks, were acquired during $\sim$ 1 hour virtual navigation session. 
+At each imaging session completion, animals were returned to their home cage.
+
+\subsection{Longitudinal recordings}
+GET INPUT FROM SARA FOR THE EXPERIMENTAL PROCEDURE OF THE LONGITUDINAL RECORDINGS
 % =========================================================== %
-%          Subsection: Data pre-processing                    %
+%    Subsection: Data acquisition and pre-processing          %
 % =========================================================== %
-\section{Data pre-processing}
+\section{Data acquisition and pre-processing}
 \label{chap3:sec:2:preproc}
-In this work we dealt with diverse and complex datasets, of different types and structures and therefore, that require different pre-processing pipelines. 
-Here the details for each case.
-\subsection{Inscopix 1-photon imaging}
-\label{chap3:sec:2:subsec1:inscopix-pre-proc}
-The Inscopix software acquires imaging data from miniscopes in freely moving animals. The imaging data is then exported as \textit{.isxd} files containing the images and the metadata. 
-Such files can only be read and treated with Inscopix own proprietary software (\textbf{poner el link}), the following pre-processing was performed using such software. 
+% In this work we dealt with diverse and complex datasets, of different types and structures and therefore, that require different pre-processing pipelines. 
+% Here the details for each case.
+% \subsection{Inscopix 1-photon imaging}
+% \label{chap3:sec:2:subsec1:inscopix-pre-proc}
+% The Inscopix software acquires imaging data from miniscopes in freely moving animals. The imaging data is then exported as \textit{.isxd} files containing the images and the metadata. 
+% Such files can only be read and treated with Inscopix own proprietary software (\textbf{poner el link}), the following pre-processing was performed using such software. 
 
-All five imaging series corresponding to the same animal in the same day were first concatenated, cropped and downsampled in space and time. 
-Temporal downsampling works by averaging $n$ adjacent frames, where $n$ is the temporal downsample factor. 
-The moving average stride is equal to the temporal downsample factor, which results in non-overlapping groups of frames to be averaged. 
-This is equal to binning the frame data in time (in bins defined by the temporal downsample factor) and the subsequent averaging of each bin. 
-The resulting number of frames equals the original number of frames divided by the temporal downsample factor, rounded down. 
-Spatial downsampling works similarly, except that the spatial bins are non-overlapping sub-images of the original frames.
-For all recordings we used a temporal and spatial downsample factor of 2 and 4 respectively.  
-Both downsampling stages were used to be able to realistically mange data size and computation time. \\
-To remove defective pixels a 3x3 median filter was applied to the movies, and early frames which were dark or dim were trimmed.\\  
-A spatial filter algorithm was then applied to each movie to remove low and high spatial frequency content. In practice the algorithm bandpass the images by convolving each frame with a gaussian kernel and subtracting a smoothed version of the frame from a less smoothed version of the frame.
-Parameters of the bandpass filter were set to \textbf{Low cut-off} $ = 0.005 \ {pixel}^{-1}$ and a  \textbf{High cut-off} $ = 0.5 \ {pixel}^{-1}$. \\
-Then each concatenated recording was motion corrected to compensate for unwanted motion of the brain relative to the skull.
-For each frame of the movie, motion correction estimates a translation that minimizes the difference between the transformed frame and the reference frame, using an image registration method described in \textit{REF [Thevenaz1998]}. \\
-Then the fluorescence in each pixel was normalize by the average fluorescence across frames to obtain the $\Delta F/F$, so that it represents a deviation or change from a baseline.  
-\subsection{2-photon imaging}
-\label{chap3:sec:2:subsec2:2p-pre-proc}
-Data extracted using 2-photon microscopy produces t-series consisting of sequential \textit{.tiff} images. 
-All images corresponding to a t-series were first concatenated to produce an \textit{.avi} video with no compression. \\
-Motion corrected was then performed using the \textit{NoRMCorre} algorithm \textit{(REF Pnevmatikakis and Giovannucci, 2017)}, that corrects non-rigid motion artifacts by estimating motion vectors with subpixel resolution over a set of overlapping patches within the FOV. 
-These estimates are used to infer a smooth motion field within the FOV for each frame. 
-The inferred motion fields are then applied to the original data frames.\\
-Motion correction was applied in two steps, first each t-series was motion corrected.
-Then, all t-series corresponding to the same day and same animal were concatenated and motion corrected again. 
-
+% All five imaging series corresponding to the same animal in the same day were first concatenated, cropped and downsampled in space and time. 
+% Temporal downsampling works by averaging $n$ adjacent frames, where $n$ is the temporal downsample factor. 
+% The moving average stride is equal to the temporal downsample factor, which results in non-overlapping groups of frames to be averaged. 
+% This is equal to binning the frame data in time (in bins defined by the temporal downsample factor) and the subsequent averaging of each bin. 
+% The resulting number of frames equals the original number of frames divided by the temporal downsample factor, rounded down. 
+% Spatial downsampling works similarly, except that the spatial bins are non-overlapping sub-images of the original frames.
+% For all recordings we used a temporal and spatial downsample factor of 2 and 4 respectively.  
+% Both downsampling stages were used to be able to realistically mange data size and computation time. \\
+% To remove defective pixels a 3x3 median filter was applied to the movies, and early frames which were dark or dim were trimmed.\\  
+% A spatial filter algorithm was then applied to each movie to remove low and high spatial frequency content. In practice the algorithm bandpass the images by convolving each frame with a gaussian kernel and subtracting a smoothed version of the frame from a less smoothed version of the frame.
+% Parameters of the bandpass filter were set to \textbf{Low cut-off} $ = 0.005 \ {pixel}^{-1}$ and a  \textbf{High cut-off} $ = 0.5 \ {pixel}^{-1}$. \\
+% Then each concatenated recording was motion corrected to compensate for unwanted motion of the brain relative to the skull.
+% For each frame of the movie, motion correction estimates a translation that minimizes the difference between the transformed frame and the reference frame, using an image registration method described in \textit{REF [Thevenaz1998]}. \\
+% Then the fluorescence in each pixel was normalize by the average fluorescence across frames to obtain the $\Delta F/F$, so that it represents a deviation or change from a baseline.  
 % =========================================================== %
 %            Subsection: Animal tracking                      %
 % =========================================================== %
-\section{Animal tracking}
-\label{chap3:sec:3:tracking}
-\subsection{Linear track}
+% \section{Animal tracking}
+% \label{chap3:sec:3:tracking}
+
+\subsection{Virtual reality Linear track}
 \label{chap3:sec:3:subsec1:linear-track-tracking}
-Animals performing the linear track task were head fixed and able to run in a wheel.
-The position of the animal is then considered as the position of the avatar in the virtual reality linear track. \textbf{PONER LA PARTE DE LOS METODOS DE SEBA}
-\subsection{2-D arena}
-\label{chap3:sec:3:subsec2:2d-arena-tracking}
-In the random foraging and open field experiments in the 2-dimensional arena animals were free to move and explore a $45 cm x 45 cm$ square box. The box was filmed using a \textbf{CAMARA MODEL} placed at \textbf{DISTANCE} meters from the floor. \\
-Animal position was estimated from these videos using the software package \textbf{DeepLabCut} (DLC) \textbf{Link to the githubpage}.\\
-DLC is a free software 000000000000000000000000000000000000000
+A custom virtual reality (VR) setup was design and implemented using Blender, an open source 3D creation suite (blender.org, version 2.78c). 
+VR was rendered with Blender Game Engine and displayed at a video rate of 60 Hz. 
+The VR environment was a linear corridor with lateral walls depicting three different white textures (vertical lines, mesh and circles) on a black background. 
+Extremes of the corridor were represented as green walls labeled with a black cross.
+The corridor was 180 cm long and 9 cm wide. 
+The animal was represented in the VR environment with a spherical avatar of radius 2 cm.
+To simulate touch-interactions with the environment, a touch sensor represented with a rectangular cuboid of dimensions ($x = 5, y = 1, z = 1 cm$) was included, protruding the animals avatar parallel to the corridor floor.
+Composite tiling of five thin-bezel led screens we used to project the avatars point of view in the VR environment ($220^{\circ}$ horizontal, $80^{\circ}$ vertical). 
+Mice could virtually navigate the environment by running on a custom 3D printed wheel (radius 8 cm, width 9 cm). 
+Motion was captured with an optical rotary encoder (Avago AEDB-9140-A14, Broadcom Inc., San Jose, CA), whos signal was converted to a serial mouse input by a single board microcontroller (Arduino Uno R3, Arduino, Ivrea, Italy). 
+Physical motion perform by the animal and measured by input devices was then mapped witha 1:1 correspondence to the virtual environment. 
+To motivate mice to explore and navigate the virtual corridor, a $\sim 4 \mu l$ water rewards was delivered upon reaching 115cm. 
+Rewards were delivered through a custom steel lick-port controlled by a solenoid valve (00431960, Christian Bürkert GmbH \& Co., Ingelfingen, Germany) and licks were monitored using a capacitive sensor (MTCH102, Microchip Technology Inc., Chandler, AZ). 
+Upon reaching the end of the corridor, animals were teleported back to the beginning of the track to start a new trial.
+If instead the mouse failed to reach the end of the track within 120 s, the trial was automatically terminated and the animal teleported to the beginning of the track. 
+After trial termination, either by reaching the end of the track or in terminated runs, animals faced a timeout interval of 5s before the start of the new trial.
+VR rendering and two-photon imaging acquisition ran on asynchronous clocks.
+To synchronize both signals, the command signal of the slow galvanometer was used.
 
+\subsection{Motion correction}
+Data extracted using 2-photon microscopy produces t-series consisting of sequential \textit{.tiff} images. 
+All images corresponding to a t-series were first concatenated to produce an \textit{.avi} video with no compression.
+Motion correction was then performed using the \textit{NoRMCorre} algorithm [\cite{pnevmatikakis2017}], that corrects non-rigid motion artifacts by estimating motion vectors with subpixel resolution over a set of overlapping patches within the FOV. 
+These estimates are used to infer a smooth motion field within the FOV for each frame. 
+The inferred motion fields are then applied to the original data frames.
+For \textit{NoRMCorre} correction a patch size of $(48,48)$ pixels, maximum overlap of $(24,24)$ pixels between patches, max rigid shift of $(6,6)$ pixels and a maximum relative shift of each patch with respect to rigid shifts of 3 pixels was used.  
 
+Motion correction was applied in two steps, first each t-series was motion corrected individually.
+Then, all t-series corresponding to the same day and same animal were concatenated and motion corrected again.
+For longitudinal recordings a third step of motion correction was included.
+After each day was motion corrected, all days belonging to the same FOV were concatenated and motion corrected again to maximize the correspondence across days. 
+Motion corrected recordings were finally split again and analyzed separately for each day.
+% \subsection{2-D arena}
+% \label{chap3:sec:3:subsec2:2d-arena-tracking}
+% In the random foraging and open field experiments in the 2-dimensional arena animals were free to move and explore a $45 cm x 45 cm$ square box. The box was filmed using a \textbf{CAMARA MODEL} placed at \textbf{DISTANCE} meters from the floor. \\
+% Animal position was estimated from these videos using the software package \textbf{DeepLabCut} (DLC) \textbf{Link to the githubpage}.\\
+% DLC is a free software 000000000000000000000000000000000000000
 % =========================================================== %
 %          Subsection: Video Segmentation                     %
 % =========================================================== %
 \section{Video Segmentation}
 \label{chap3:sec:4:segmentation}
+To infer neuronal activity, imaging data was first segmented using the algorithm CITE-on (Cell Identification and Trace Extraction online, \textbf{cite the biorxiv or publication if ready}). 
+CITE-on is a convolutional neural network-based algorithm for automatic online cell identification, segmentation, identity tracking, and trace extraction in two-photon calcium imaging data. 
+The off-line cell identification suit was used on the median projection of the full length concatenated recordings.
+By using the median projection of the full motion corrected concatenated recordings, the amount of neurons detected is maximized.
+In practice, CITE-on implements an image detector based on the publicly available convolutional neural network (CNN) RetinaNet [\cite{lin2020}].
+The output of the CNN image detection is a set of boxes tightly surrounding each detected cell soma, from here on called \textit{bounding boxes}.
+Coordinates and identity of the bounding boxes is saved and used in the following steps. 
+Note that, because the motion correction is performed across t-series, and the median projection is calculated on the full-length recording, the coordinates and identities of the bounding boxes are preserved across frames and t-series and don't need adjustments or tracking across frames. 
+CITE-on requires an upscaling factor that depends on the ratio between the FOV surface and the average surface of the neuronal somata. 
+This parameter was optimized to obtain the tightest fit of bounding boxes to cell somatas, in all recordings presented in this work this parameter was set to $0.7$.  
 
+\section{Longitudinal tracking}
+In longitudinal recordings video segmentation was applied separately for each day, and cell identities were match a posteriori. 
+To compare sets of bounding boxes, we computed the intersection over union ($iou$) for all pairs of boxes. 
+Pairs with $iou>0.5$ were considered matching identities, if a box from one set satisfies this condition with more than 1 box from the other set, then the pair with the biggest $iou$ was considered as matching identities. 
+Matching procedure was applied between the set of bounding boxes from first day of recording and the second and then between the first and third day of recordings.
+The intersection between both matching sets are the cells that we considered as \textbf{tracked}.
+All cells that do not have a matching identity between first and second day and/or first and third day are considered as \textbf{non tracked} cells. 
 % =========================================================== %
 %               Subsection: Trace extraction                  %
 % =========================================================== %
 \section{Trace extraction}
 \label{chap3:sec:5:trace_extraction}
+The second step in the inference of neuronal activity consists on extracting calcium traces out of the recordings for the identified cells. 
+This was achieved using the algorithm CaImAn, a popular state-of-the-art method based on Constrained Non-Negative Matrix Factorization (CNMF) [\cite{giovannucci2019}].
+We used the bounding boxes generated offline by CITE-On to build binary masks that were used as seeds to initialize the seeded-CNMF algorithm.
+Seeded-CNMF calculates first the temporal background component of the recording using pixels that were not included in any mask, this background component is later on subtracted from each neuronal factor. 
+It represents the background noise that is shared across all signals including the neuropil activity.
+Then, the seeded-CNMF algorithm estimates temporal components and spatial footprints, constrained to be non-zero only at the location of the binary masks.
+Parameters for seeded-CNMF were explored and tuned manually: number of global background components = 2; no merging was performed; number of components per patch $= 4$ ; expected half size of neurons in pixels $= (7,7)$; no spatial or temporal subsampling was performed.
+Finally for each component the $\Delta F/F_0$ was computed with the CaImAn \textbf{detrend\_df\_f} function (see \cite{giovannucci2019}), using the $50^{th}$ quantile as baseline and a 2000 frames running window to compute quantiles.  
 
+The combination of both algorithms was implemented in order to take advantage of the strengths of each, while, at the same time, compensating for their weaknesses.
+Off-line CITE-on localizes putative neurons considering only anatomical aspect, regardless of their activity profile.
+CaImAn then refines the segmentation for each binding box and provides denoised calcium traces. 
+Neither deconvolution nor spike inference were used. 
 % =========================================================== %
 %          Subsection: Event detection                        %
 % =========================================================== %
 \section{Event detection}
 \label{chap3:sec:6:event_det}
+For each component obtained after trace extraction, statistically significant calcium events were detected on  the $\Delta F/F$ traces with a modified implementation of the algorithm described in [\cite{dombeck2007}]. 
+Briefly, the standard deviation $\sigma_1$ of the signal was computed and points bigger in absolute value than $\sigma_1$ were removed from the trace. 
+This procedure automatically excluded large transients.
+Then, the standard deviation $\sigma_2$ of the resulting trace was computed. 
+Fluorescence transients were identified as events that:
+%\renewcommand{\labelenumi}{\roman{enumi}}
+\begin{enumerate}[label=\roman*)]
+    \item were bigger in absolute value than $3\ \sigma_2$ 
+    \item didn't return within $2\ \sigma_2$ before 0.5 s [\cite{dombeck2007}].
+\end{enumerate}
+These criteria were selected to obtain a false discovery rate $< 5\%$.
+Here False discovery rate is defined as: 
+\begin{equation}
+    FDR = \frac{N_{E_n}}{N_{E_p}+N_{E_n}}
+\end{equation}
+where $N_{E_n}$ and $N_{E_n}$ are the numbers of identified positive and negative deflections of the $\Delta F/F_0$ trace, respectively. 
+In this way, an \textbf{event trace} can be obtained by setting all fluorescent values from the $\Delta F/F_0$ trace that do not belong in a positive event to 0. 
+We call such trace the \textit{event trace}.
 
 % =========================================================== %
 %          Subsection: Place Cell detection                   %
 % =========================================================== %
 \section{Place Cell detection}
 \label{chap3:sec:7:pc_det}
+\subsection{Response profiles and response fields}
+Only instants in which the animal was running at a speed $> 1 cm/s$ were considered for the analysis. 
+% Analysis was performed in trials matching the following criteria: 
+% i) mouse running speed $> 1 cm/s$;  I THINK THIS IS THE ONLY CONDITION 
+% ii) running bout $> 20 cm$; 
+% iii) running bouts separated by no running for $< 15$ s were considered as the same bout.
+% The length of the virtual corridor was binned (number of spatial bins, 80; bin width, 2.25 cm). 
+The virtual corridor was binned using 81 equally spaced bins and the occupancy map was calculated for each animal. 
+The occupancy map represents the total amount of time spent in each spatial bin. 
+Then the activity map was computed for each ROI as the average fluorescence value in each spatial bin. 
+Both the activity and the occupancy map were normalized to sum 1 and convolved with a Gaussian kernel with a width of 3 spatial bins. 
+We then defined the response profile of a ROI (RP) as the ratio of its activity map over the occupancy map. 
+For each RP we defined and computed a response field (RF) as follows: 
+\begin{enumerate}[label=\roman*)]
+    \item find all local maxima greater than the 25th percentile of the response profile values  $C = (c_0, c_1, ... , c_n)$
+    \item fit the response profiles as the sum of $n$ parametrized Gaussian functions, with means equal to the elements of $C$.
+    The amplitud $a_i$ and standard deviations $\sigma_i$ were constrain to take values $ 0 \leq a \leq 1 $ and $0 \leq \sigma \leq 90 cm$ respectively. 
+    The fitting was performed by solving a non-linear least squares problem using the function \textit{curve\_fit}, from scipy, \url{www.scipy.org}):
+    \begin{equation}
+        RP \cong \sum_{c_i\in C} a_i\exp{\frac{-(x-c_i)^2}{2\sigma_i^2}}
+    \end{equation}
+    With constrains 
+    \begin{equation}
+        \begin{cases}
+            0\leq c_i \leq 180\ \forall\ c_i \in C \\
+                0\leq a_i \leq 1\ \forall\ a_i \in A \\
+                    0\leq \sigma_i \leq 90\ \forall\ \sigma_i \in S
+        \end{cases}
+    \end{equation}
+    \item the RF was defined as the fitted gaussian with the highest amplitude, and its width as $2\ \sigma_i$
+    \begin{equation}
+        RF = a_i\exp{\frac{-(x-c_i)^2}{2\sigma_i^2}} \quad \text{with} \quad  i=argmax(A)
+    \end{equation}
+\end{enumerate}
 
+\subsection{Place cells analysis}
+Only periods in which the animal running speed was $> 1 cm/s$ were used to study the spatial modulation of neuronal cell activity. 
+We defined spatial modulation based on information theory (see section \ref{chap1:sec:3:subsec1:information_theory}, \cite{shannon1948}, \cite{quirogapanzeri2013}). 
+We computed the mutual information between position in the linear track $P$ and the neuronal calcium event trace $F$ using equation \ref{eqn:mutualinfo1}
+\begin{equation}
+\label{eqn:mutualinfoPF}
+    I(F\ :\ P) = H(F)+H(P)-H(F , P)
+\end{equation}
+Where $H$ is the Shannon entropy as defined in equation \ref{eqn:entropy}:
+\begin{equation}
+    H(X)= -\sum_{x\in X}p(x)\ log_2(p(x))
+\end{equation}
+Here $X = (x_0, x_1, ... , x_n)$ represents all possible discrete values of either $F$ or $P$.
+And $H(F,P)$ is the joint entropy as defined in equation \ref{eqn:jointentropy}.
+To answer the question of whether a cell carries \textbf{significant amount of information} in its calcium activity we compared its mutual information with a surrogate distribution of mutual information values. 
+These values were obtained by calculating the mutual information of surrogate traces that were cyclic permutations of the temporally inverted original trace.
+The permutations were done by shifting the traces a random amount of time bigger than the $5\%$ of the length of the trace and smaller than the $95\%$.
+Importantly, this surrogate method preserves every aspect of the trace, such as auto-correlation, temporal structure, mean value, etc, but destroys the temporal relationship between neuronal activity and position.  
+This procedure was perform 1000 times for each ROI to build the null distribution of mutual information values.
+A cell whose mutual information value was higher than the $95^{th}$ percentile of the null distribution was considered a \textbf{place cell}. 
+
+\subsection{Bias correction and parameter selection}
+As metioned in the introduction (see section \ref{chap1:sec:3:subsec1:information_theory}), using empirical probability distribution as aproximations of the true underlying probability distribution produces biased values of mutual information (MI). 
+The contribution of the bias to the MI value strongly depends in how we choose to bin the variables: higher number of bins better describe the data but produces bins with less counts and therefore worst estimates of their probabilities. 
+To account for this bias we first computed the parameter 
+\begin{equation}
+    NsR = log_2(\frac{N_s}{R})
+\end{equation}
+with $N_s$ the average number of counts in position bins, and $R$ the number of stimulus bins, that is the amount of steps in which we decide to bin calcium intensities.
+This parameters gives a quantitative measure of how well we can estimate the probability distribution: the bigger it is, the better or probabilities estimates will be, we consider $NsR=3$ as a threshold above which the description quality is good.
+We calculated $NsR$ for each recording for number of intensity bins $r_{bins} = [2,3,4,5,8,10,20]$ and position bins $s_{bins} = [4,8,12,16,20,24,40,60,80,100,160]$.
+Then, we calculated the contribution of the bias for each ROI as the mean of the null distribution, using the surrogate distribution described in the previos section. 
+The \textbf{unbias value of MI} is thus defined as the MI value calculated as in equation \ref{eqn:mutualinfoPF} minus the bias:
+\begin{equation}
+    \label{eqn:unbias_mutualinfo}
+    MI_{unbiased}=I(F\ :\ P) - \langle I(F_{s}\ :\ P)\rangle_{surrogates}
+\end{equation}
+We then calculated the average unbias MI value across ROIs for each combination of numbers of intensity and position bins and their standard deviation, we then splitted this averages in place cells and non-place cells. 
+By doing so we can study the contribution of the bias as a function of the binning of the variables.
+Higher contribution of the bias will decrease the value of the unbiased MI.
+At the same time we expect that if the bias is correctly being subtracted then the non place cells would have unbiased MI values close to zero and the place cells positive values. 
+Therefore we selected the appropriate combination of space and intensity binning as the highest number of bins that have a $NsR>3$ and that maximizes the unbiased MI. 
+This procedure allows comparisons of MI values across recordings, experimental conditions and ROIs. 
+Finally, we performed all the aforementioned procedure for two binning procedures for space: uniform width bins and uniform count bins, the latter yielding a uniform distribution of space occupancy.
+This last computation serves as a control for the consistency of the unbiased MI values across binning procedures. 
 % =========================================================== %
 %          Subsection: Statistical testing                    %
 % =========================================================== %
 \section{Statistical testing}
 \label{chap3:sec:8:stats}
+To compare distribution of independent samples we used the Mann-Whitney U test. 
+For related paired samples we used the Wilcoxon signed-rank test. 
+Both tests are non-parametric, and in both cases the scipy [\url{www.scipy.org}] implementation for python was used. 
+
+The question whether CNO application had en effect on information content in place cells involves comparisons across conditions for different animals and with different numbers of cells for each recording.
+The contribution of the animal variability could in principle mask the statistical significance of the condition effect, and the difference in counts brakes the symmetry needed for some standard statistical tests. 
+For these reasons to explore the difference in the information content of cells in both conditions, but excluding the animal variability we fitted a Linear Mixed Effects Model (LMEM) with treatment (CNO or Saline injection) as a fixed effect and animal (or FOV depending on the experimental paradigm) as a random effect. 
+LMEM was fitted using the \textit{lme4} and \textit{lmerTest} and \textit{car} libraries from \textbf{R} [\cite{Rsoftware}], we compare two models, that using the standard nomenclature can be described as
+\begin{align}
+    MI & \sim treatment + (1|animal) \label{LMEM1} \\
+    MI & \sim treatment + (1+treatment|animal) \label{LMEM2}
+\end{align}
+Equation \ref{LMEM1} represents a model with one fixed effect and a random intercept for the animal, equation \ref{LMEM2} adds a random slope to the previous model. 
+To compare both models an ANOVA test was performed, if the more complex model described significantly more variance, then model \ref{LMEM2} was used.
+If, on the other hand, there was no significant difference across models, the simpler one (\ref{LMEM1}) was prefered. 
+After fitting the model, statistical significance of the fixed effect was tested using a Type II Wald chi-square tests implemented as in the \textit{car::Anova} function.
+
 
 % =========================================================== %
 %   Subsection: Decoding of position from neural activity     %

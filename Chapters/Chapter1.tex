@@ -248,7 +248,7 @@ These characteristics render standard wide-field and confocal fluorescence micro
 To bring some light to this issue (pun intended) comes multiphoton micoscopy and in particular tow-photon laser-scanning microscopy (2PLSM).
 2PLSM has seen its first experimental validation around 20 years ago, and since then it has revolutionized biological imaging, due to its unprecedent high-resolution and high-contrast characteristics even when imaging hundreds of microns deep inside intact tissue [\cite{denk1994}], [\cite{helmchen2005}].
 Briefly, 2PLSM is a laser-scanning method that exploits localized ‘nonlinear’ excitation to stimulate fluorophores only within a thin raster-scanned plane [\cite{zipfel2003}]. 
-Two-photon (2P) fluorophore excitation was first conceived by Marie Goeppert-Mayer [\cite{goppertmayer1931}] and relies on a simple yet very powerful concept which is the idea that when two photons arrive 'quasi-simultaneously', that is within franctions of a $fs$, at the fluorophore, its energy is absorbed to promote the transition of one electron from the ground state to the excited state.
+Two-photon (2P) fluorophore excitation was first conceived by Marie Goeppert-Mayer [\cite{goppertmayer1931}] and relies on a simple yet very powerful concept which is the idea that when two photons arrive \enquote{quasi-simultaneously}, that is within franctions of a $fs$, at the fluorophore, its energy is absorbed to promote the transition of one electron from the ground state to the excited state.
 The electron in the excited state then decays following the normal fluorescence-emission, or photochemical reaction, pathway as in single photon fluorescence excitation [figure \ref{fig:chap1:optical_imaging}a] [\cite{pawley2006}].
 In this way, fluorophore excitation rely on higher-order light-matter interactions, thus having a non-linear dependency on the incident light intensity [\cite{svoboda2006}], [\cite{helmchen2005}]. 
 This represents an improvement with respect to standard wide-field fluorescence, where excitation is due to absorption of a single photon and therefore depends linearly on light intensity. 
@@ -383,7 +383,7 @@ We will discuss this aspects next.
 \subsection{Calcium signaling in astrocytes}
 \label{chap1:sec:2:subsec2:astro_calcium_signals}
 As inexpert scientists, we PhD students have a bias view of the way research works towards positive discoveries and confirmed hypothesis. 
-Simply because our biggest source of information are publications, and the chances of getting a story published that states "\textit{we formulated \textbf{this} hypothesis, and found it to be wrong}" are very low, there's a lack of charm in failure that prevents unsuccessful hypothesis to be known. 
+Simply because our biggest source of information are publications, and the chances of getting a story published that states \enquote{we formulated \textbf{this} hypothesis, and found it to be wrong} are very low, there's a lack of charm in failure that prevents unsuccessful hypothesis to be known. 
 Which is regrettable, because proven wrong hypothesis are at least as informative as positive results.
 With brilliant examples like the Michelson-Morley experiment in 1887, where the two physicist trying to prove the existence of the aether, the medium in which light was thought to propagate, proved instead that it didn't exist.  
 And in the way invented the interferometer. 
@@ -391,7 +391,12 @@ Invention that was later crucial for the development of the special theory of re
 We can go even further and say that logic allow us \textit{only} to falsify theories, but, on the other hand, to prove a theory \textit{correct} is impossible. 
 We can get encouraging results, experiments that help us gain confidence in our working hypothesis, but not really prove it.
 On the other hand, one counterexample is all that is needed to prove it wrong.
-As Einstein eloquently put it: \textit{The scientific theorist is not to be envied. For Nature, or more precisely experiment, is an inexorable and not very friendly judge of his work. It never says "Yes" to a theory. In the most favorable cases it says "Maybe," and in the great majority of cases simply "No." If an experiment agrees with a theory it means for the latter "Maybe," and if it does not agree it means "No." Probably every theory will someday experience its "No"—most theories, soon after conception.} [Albert Einstein: the human side: New glimpses from his archives. Dukas and Hoffman 1922]
+As Einstein eloquently put it: 
+
+\begin{quote}
+\textit{The scientific theorist is not to be envied. For Nature, or more precisely experiment, is an inexorable and not very friendly judge of his work. It never says \enquote{Yes} to a theory. In the most favorable cases it says \enquote{Maybe}, and in the great majority of cases simply \enquote{No}. If an experiment agrees with a theory it means for the latter \enquote{Maybe}, and if it does not agree it means \enquote{No}. Probably every theory will someday experience its \enquote{No} —most theories, soon after conception.}
+[Albert Einstein: the human side: New glimpses from his archives. Dukas and Hoffman 1922]
+\end{quote}
 Perhaps a way to compensate for this bias is to get rid of the miss-conception that falsifying an hypothesis represent failure but instead call it for what it is, a scientific discovery.  
 
 In a way, a fruitful, but less interesting substitute of self-falsified hypothesis are the stories of scientist trying to prove \textit{other} peoples theories wrong, because controversy, unlike failure, sells journals.
@@ -583,7 +588,7 @@ We'll explain these concepts in the next section.
 % =========================================================== %
 \subsection{Information Theory}
 \label{chap1:sec:3:subsec1:information_theory}
-Information theory was first developed by C. E. Shannon and beautifully exposed in his landmark paper \textit{A Mathematical Theory of Communication} [Shannon 1948].
+Information theory was first developed by C. E. Shannon and beautifully exposed in his landmark paper \textit{A Mathematical Theory of Communication} [\cite{shannon1948}].
 In it, Shannon develops a mathematical formalism of communications, considering the coding an decoding problem of information in noisy channels.
 This theory has extended to many fields with several practical and theoretical applications, notably modern computation, quantum mechanics, quantum computation and neuroscience.
 There are several ways of approaching the notion of information as in Shannons theory, we will expose a modified version of the one exposed in his paper.
@@ -615,11 +620,12 @@ with $K$ a positive constant that amounts only to the choice of units of measure
 This expression might ring a bell for those who have studied statistical mechanics, $H$ is nothing but the \textbf{entropy}. 
 We select the logarithm to be in base $2$ (all logarithms in this thesis will be in base $2$ unless otherwise specified), which is achieve by appropriately selecting the constant $K$, and define the entropy of the probability distribution $p_1,p_2,...,p_n$ of an n state variable as:
 \begin{equation}
+\label{eqn:entropy}
     H=- \sum_{x=1}^n p_x\ log_2 (p_x)
 \end{equation}
 This definition is intuitive but is not the whole story. Probably the best reason to define entropy in this way is because it can be used to \textit{quantify the resources needed to store information}. 
 It can be proved that Shannon's entropy represents the minimal physical resources required to store the information being produced by a source, in such a way that at a later time the information can be reconstructed.
-This result is known as the \textit{Shannon’s noiseless coding theorem}.
+This result is known as the \textit{Shannon’s noiseless coding theorem} [\cite{shannon1948}].
 
 It might be useful to build a toy example to illustrate some of the properties of $H$. Lets consider an overly simplified neuron with two possible states, it can be either firing or not. It fires with probability $p$ and is silent with probability $q=1-p$, then its entropy is given by
 \begin{equation}
@@ -637,7 +643,7 @@ That is $H=log(n)$ and is maximum if and only if $p_i=\frac{1}{n} \; \forall \ i
 \begin{figure}
     \centering
     \includegraphics[width=\textwidth]{Figures/Chapter1/intro_fig_info.pdf}
-    \caption{Concepts of entropy and information theory. a) Entropy of a binary variable as a function of the probability $p$, adapted from Shannon 1948 b) Schematic entropy and information Venn diagram, adpated from Nielsen and Chuang book, 2010.}
+    \caption{Concepts of entropy and information theory. a) Entropy of a binary variable as a function of the probability $p$, adapted from \cite{shannon1948} b) Schematic entropy and information Venn diagram, adpated from Nielsen and Chuang book, 2010.}
     \label{fig:chap1:info_theory_concepts}
 \end{figure}
 
@@ -645,6 +651,7 @@ Now, before we tackle the question that brought us to this point to begin with, 
 Let's say we have another variable with its own states and probability distribution ${p(y)}$, that can represent another neuron, or set of neurons, or a behavioral variable like the position of the animal. 
 We define the \textbf{joint entropy} of variables $X$ and $Y$ as
 \begin{equation}
+\label{eqn:jointentropy}
     H(X,Y)\equiv-\sum_{x,y}p(x,y)\ log(p(x,y)) 
 \end{equation}
 The joint entropy measures our total uncertainty about the pair $(X,Y)$.
@@ -690,7 +697,7 @@ And finally, all the quantities presented so far are easily scalable to many var
 
 As with anything in life, it does come with its perks and considerations and has to be used with care and a proper understanding of the tools.
 This is particularly true when dealing with real data, because, although very solid and versatile in its formalism, information theory requires the knowledge of the underlying probability distributions of the variables, which is never really known. 
-Probably the stronger assumption that we do then to use information theory for real data is that we can get an empirical approximation of the underlying probability distribution, and that it is a good approximation. 
+Probably the stronger assumption we do when using information theory for real data is that we can get an empirical approximation of the underlying probability distribution, and that it is a good approximation. 
 The bias implied by using empirical probability distributions has been extensively studied and several alternatives for correcting such bias have been proposed [Panzeri et al., 2007, Panzeri and Treves 1995].
 
 Information theory approaches have been traditionally used for studying spiking trains, and therefore electrophysiological data [Skaggs 1993].
