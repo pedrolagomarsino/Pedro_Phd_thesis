@@ -64,6 +64,10 @@ headsepline, % Uncomment to get a line under the header
 \usepackage[normalem]{ulem} % Required to add dashed underlines
 
 \setlength\parindent{2em}
+
+\usepackage{sidecap}
+\sidecaptionvpos{figure}{c}
+\usepackage{pdfpages}
 %----------------------------------------------------------------------------------------
 %	MARGIN SETTINGS
 %----------------------------------------------------------------------------------------
@@ -83,7 +87,7 @@ headsepline, % Uncomment to get a line under the header
 %	THESIS INFORMATION
 %----------------------------------------------------------------------------------------
 
-\thesistitle{Como Hacer un Asado}
+\thesistitle{Interplay between astrocytic and neuronal networks during virtual navigation in the mouse hippocampus}
 % Thesis title, this is used in the title and abstract, print it elsewhere with \ttitle
 
 \supervisor{Dr. Tommaso \textsc{Fellin}}
@@ -114,8 +118,8 @@ headsepline, % Uncomment to get a line under the header
 \university{Universit\`a di Genova}
 % Your University's name and URL, this is used in the cover page and abstract, print it elsewhere with \univname
 
-\bsuniversity{UNIGE}
-\msuniversity{UNIGE}
+\bsuniversity{U.B.A}
+\msuniversity{Universidad de Buenos Aires}
 % Your Bachelor/Master University's name and URL, this is used in the title page and abstract, print it elsewhere with \univname
 
 \department{DINOGMI}
@@ -189,7 +193,7 @@ headsepline, % Uncomment to get a line under the header
 %	QUOTATION PAGE
 %----------------------------------------------------------------------------------------
 
-\input{Dedication/dedication.tex}
+%\input{Dedication/dedication.tex}
 
 
 %----------------------------------------------------------------------------------------
@@ -213,18 +217,18 @@ headsepline, % Uncomment to get a line under the header
 
 %\listoftables % Prints the list of tables
 
-\listofalgorithms % Prints the list of algorithms
-\addchaptertocentry{\listalgorithmcfname}
+%\listofalgorithms % Prints the list of algorithms
+%\addchaptertocentry{\listalgorithmcfname}
 %----------------------------------------------------------------------------------------
 %	ABBREVIATIONS
 %----------------------------------------------------------------------------------------
-\input{Abbreviations/abbreviations.tex}
+%\input{Abbreviations/abbreviations.tex}
 
 
 %----------------------------------------------------------------------------------------
 %	SYMBOLS
 %----------------------------------------------------------------------------------------
-\input{Symbols/symbols.tex}
+%\input{Symbols/symbols.tex}
 
 %----------------------------------------------------------------------------------------
 %	THESIS CONTENT - CHAPTERS
@@ -242,6 +246,13 @@ headsepline, % Uncomment to get a line under the header
 \include{Chapters/Chapter3}
 \include{Chapters/Chapter4}
 \include{Chapters/Chapter5}
+
+%----------------------------------------------------------------------------------------
+%	BIBLIOGRAPHY
+%----------------------------------------------------------------------------------------
+
+\printbibliography[heading=bibintoc]
+
 %----------------------------------------------------------------------------------------
 %	THESIS CONTENT - APPENDICES
 %----------------------------------------------------------------------------------------
@@ -253,14 +264,7 @@ headsepline, % Uncomment to get a line under the header
 
 \include{Appendices/AppendixA}
 \include{Appendices/AppendixB}
-\include{Appendices/AppendixC}
 
-
-%----------------------------------------------------------------------------------------
-%	BIBLIOGRAPHY
-%----------------------------------------------------------------------------------------
-
-\printbibliography[heading=bibintoc]
 
 %----------------------------------------------------------------------------------------
 

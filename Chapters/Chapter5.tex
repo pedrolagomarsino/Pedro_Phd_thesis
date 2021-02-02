@@ -2,4 +2,168 @@
 
 \chapter{Discussion} % Main chapter title
 
-\label{Chapter5} % For referencing the chapter elsewhere, use \ref{Chapter5} 
+\label{Discussion} % For referencing the chapter elsewhere, use \ref{Chapter5} 
+%\textbf{Discussion starts with a summary of the results you obtained in your thesis.}
+Unpublished work from my mentor's laboratory in collaboration with Jacopo Bonato and Stefano Panzeri indicate that hippocampal astrocytes encode spatial information in their calcium dynamics during virtual navigation (see introduction \ref{chap1:sec:3:subsec2:astro_info}). 
+Given that calcium signals in astrocyte has downstream effects on synaptic transmission [\cite{panatier2006}; \cite{henneberger2010}; \cite{fellin2009}] and neuronal excitability [\cite{jourdain2007}; \cite{kang1998}; \cite{liu2004}], this observation raises the hypothesis that space-encoding calcium dynamics into astrocytes may modulate the neuronal representation of space. 
+In this thesis work, we developed an analytical pipeline to study the effects of manipulating astrocytic calcium activity on spatial information encoding in CA1 neurons of the mouse hippocampus during virtual navigation. 
+To manipulate astrocytic calcium signals, we used pharmacogenetic interventions [\cite{roth2016dreadds}; \cite{armbruster2005creation}; \cite{armbruster2007evolving}] using astrocyte-specific expression of DREADDs in combination with intraperitoneal CNO injection [\cite{adamsky2018astrocytic}].
+We found that CNO injection induced an initial synchronous increase of calcium activity in the majority of imaged astrocytes followed by a prolonged period of synchronously decreased calcium signals (Figure \ref{fig:chap4:CNO_effect_calcium}). 
+To image neuronal representation of space during virtual navigation, we expressed the fluorescent functional indicator GCaMP6f (REFS) in neurons and we compared neuronal spatial information encoding under control conditions (after saline injection) and after CNO injection using two-photon GCaMP6f imaging (Figure \ref{fig:chap4:MI_C_2p}). 
+Initially, we used nonlongitudinal recordings of neurons, meaning that different FOV were imaged across experimental conditions (e.g., control vs. CNO) similarly to \cite{dombeck2010}.
+In this first data set, we found that CNO injection resulted in a significant increase in the average information content in neurons.
+Importantly, using a LME model [\cite{pinheiro2000linear}] to compare full distributions of mutual information values and excluding animal variability produced similar result. 
+The effect was stronger when comparing place cells subpopulations for each animal.
+Moreover, the ratio of place cells \textit{per} field of view increased after CNO injection (Figure \ref{fig:chap4:pc_quantification_2p}). 
+We compared width and centers of response profiles for all cells and found a significant increase in response profile width after CNO injection (Figure \ref{fig:chap4:width_center_2p}). 
+Response profiles centers were also significantly different across the two conditions (saline vs. control). 
+However, when considering only place cells, the distribution of place field width and place field centers were not significantly different. 
+On the other hand, when considering only non-spatial encoding cells, the distribution of response profile width and centers were significantly different. 
+
+The results of this preliminary set of experiments (non-longitudinal recordings) suggested that CNO application (i.e., manipulation of calcium signalling in astrocytes) significantly affected neuronal representation of space in the hippocampus of mice navigating in a virtual corridor. 
+However, to correctly interpret these preliminary findings two aspects of the data should be taken into consideration. 
+First, there was a large variability in the number of cells detected across FOV and conditions. 
+This could, in principle, introduce biases in the statistical comparison. For example, conditions with larger number of cells could influence more the result. 
+Moreover, the low number of detected cells under certain conditions could represent a biased estimate of the full distribution because of subsampling.
+Second, different FOVs were imaged under each experimental condition.
+Thus, the effect of the treatment was assessed on different sets of neurons in each conditions, preventing pairwise statistical comparison.
+
+To overcome these limitations, we developed and implemented a protocol to reliably image the same FOV over different experimental sessions across days (longitudinal recordings).
+At the same time, the recording protocol was modified to image more neurons \textit{per} FOV.
+We succeeded in imaging the same FOV across sessions. 
+However, the sets of neurons in each session were not entirely overlapping: not all cells from each recording had a corresponding one in the following sessions. 
+This could be due to different activity levels leading to different basal fluorescence across conditions [\cite{chen2013}].
+As with the non-longitudinal recordings, we first compared the distribution of MI values after saline (two saline injections were performed in the longitudinal recordings, one preceding and one following the day of CNO application) and after CNO injection for each animal considering all cells from each session (Figure \ref{fig:chap4:MI_C_all_cells_longitudinal}).
+In contrast to what we observed in the nonlongitudinal recordings, the mutual information averages were, in this second data set, not significantly different for any pair of days (first vs. second day of saline; first day of saline vs. CNO day; CNO day vs. second day of saline).
+To account for animal variability, we fitted a LME model with treatment as fixed effect and FOV as random effect with either a random intercept or a random intercept and a random slope.
+The fitted slope was small and positive, suggesting a small but not significant decrease of information content after CNO injection.
+Similar results were found when comparing only the subset of neurons that displayed significant amount of spatial information (i.e., place cells). 
+To make the analysis more comparable with the one performed in the nonlongitudinal recordings, we fitted a LME model considering only the first day of saline injection and discarding the day of saline injection which followed CNO application.
+The fitted slope was negative, showing the general tendency of the nonlongitudinal recordings. 
+However, the effect was statistically non significant. 
+Comparing only place cells for these two days increased the absolute value of the negative slope, but the effect was still statistically not significant. 
+We fitted a LME model to compare the two saline days and found no significant difference. 
+We then compared the center and width of response profiles and place fields for the first day of saline and CNO injection sessions (Figure \ref{fig:chap4:pf_width_center_long}). 
+We observed a significant increase in place field width (i.e. considering only place cells), but no significant difference in response profile width when considering all cells.
+Field center distributions were, instead, significantly different in both cases. 
+
+The richness of this data set relies, however, on the possibility to compare single cells activity across conditions. 
+To this end, we developed an analytical pipeline to detect and track identities across experimental sessions.  
+We then compared mutual information values for each cell across session, with heterogeneous results across FOV, and no significant difference on distribution averages (Figure \ref{fig:chap4:MI_C_tracked_cells_longitudinal}). 
+While it is true that this is a comparison between subsets of the full distributions for each FOV, the statistical advantage of this comparison lies on the possibility of performing pairwise testing. 
+This allowed us to compare not only trends in population values but single cell differences across days. 
+To further exploit the longitudinal aspect of these recordings, we compared response profile and place field properties for each cell (Figure \ref{fig:chap4:width_center_tracked_cells_longitudinal}).
+We observed a symmetric distribution of both response profile centers and width differences between treatments, meaning that cells tended to increase their response width and center upon CNO application as much as they tended to decrease it. 
+Moreover, a large proportion of cells maintained their values across conditions, evidenced by a high number of counts in the central bins of the difference histograms in figure \ref{fig:chap4:width_center_tracked_cells_longitudinal} (right panels). 
+To uncover possible relationships between changes in response profile centers and width with variations in information content \textit{per} cell, we plotted each cell in the plane defined by either centers or widths in each day, and colored it according to the cell's variation in information content (Figure \ref{fig:chap4:width_center_tracked_cells_longitudinal} left panels). 
+Beyond a higher density of points in the diagonal, representing the aforementioned high percentage of cells that tended to maintain their properties across days, no other asymmetry in the distribution of dots or colors was observed.
+Moreover, dots along the diagonal had different colors, meaning that cells that preserved their response properties did not necessarily preserve also their information content. 
+
+%\textbf{more place cells in the first dataset thats why more information content? maybe more active animals? should have done that control to mention it... maybe put the last plot separated by color to discuss the dots in the upper left part}
+%\textbf{Then you discuss potential issues with your data (in your case you list potential explanations of why we see differences between the longitudinal and non longitudinal datasets) and you compare the results to what is currently known in the literature.} 
+The observation that CNO application changes the neuronal representation of space in the hippocampus in the non-longitudinal recordings is suggestive of a role of astrocytes in the control of neuronal place cells. 
+However, the preliminary nature of this data set and the contrasting results coming out from the longitudinal recordings, imposes us to critically discuss limitations and biases that may affect the analysis of these recordings. 
+First, the observation that in the nonlongitudinal recordings neurons after CNO injection have higher overall information content could be explained by the fact that the ratio of place cells increased upon pharmacological treatment. 
+Given that, in some cases, the number of cells detected was small, this poses the question of whether we may have recorded signal from a biased set of neurons. 
+For example, highly active and informative cells.
+However, the segmentation analysis that we performed on these 2-photon imaging data set does not favour highly active cells (see CITE-On in appendix \ref{CITE-On}) under normal GCaMP6f expression conditions, making this explanation unlikely.
+Nevertheless, it is possible that in FOV characterized by low GCaMP6f expression levels, recorded neurons did have a bias towards high activity regimes [\cite{harris2016improving}]. 
+Low expression of GCaMP6f was not clearly observed in the recordings presented here, but more quantitative evaluation of the indicator expression should be performed in our data set to address this issue. 
+Second, in the non-longitudinal recordings we found an increase of information content after CNO injection, and at the same time an increase in response profile and place field width. 
+These two observations might be counter-intuitive: higher widths account for blunter responses, which in turn could induce a reduction in information content (see section \ref{fig:chap1:info_theory_concepts}). 
+However, the variance of the response is not the only source of information content changes.
+The way we calculated the width of the response considered only the principal place field for place cells and the area of highest response for non place cells (see methods \ref{chap3:sec:7:subsec1:PF_and_response_profiles}). 
+This approach does not take into consideration secondary place fields, or responses far from the main response area [\cite{danielson2016sublayer}; \cite{zaremba2017impaired}]. 
+Thus, a reduction in the activity outside the main response area could account for the observed increase in information content. 
+Further analytical characterization of cell activity is needed to to clarify this point. 
+In figure \ref{fig:chap4:width_center_2p}, we discussed width differences more in detail.
+We found that the difference in place field width upon CNO application was not statistically significant when considering only place cells, while the difference was significant when considering only non place cells (bottom panel). 
+A possible interpretation for these results is that the difference we observed in the response profile width when considering all cells was mostly due to the contribution of non place cells. 
+However, the visual inspection of the plots in figure \ref{fig:chap4:width_center_2p} suggested a second interpretation. 
+That is that the difference was due to both place and non place cells, but the changes in numerosity between the two experimental groups (1739 vs 454 for non place cells and place cells, respectively) strongly influenced the output of the statistical test.
+
+To overcome some of the aforementioned limitations, we performed longitudinal recordings. 
+Surprisingly, we found that mutual information values were not significantly different upon CNO application compared to controls. 
+Although both data sets and their analyses are preliminary, the contrasting results obtained from the two data sets could be due to a number of reasons that will be discussed in the following text. 
+As mentioned above, one possible explanation is that the apparent significant effects we observed in the nonlongitudinal recordings were due to different numerosity of the samples under the two conditions or to the fact that we compared different FOVs across conditions. 
+There are, however, other possible reasons that could justify the observed discrepancy. 
+If we observe the comparisons for the first day of saline and the CNO injection recordings for the tracked cells in the longitudinal recordings, (Figure \ref{fig:chap4:MI_C_tracked_cells_longitudinal}), the difference in mutual information is significant for each FOV individually but it is not when we average across FOVs. 
+This is because the effects have different signs in different FOVs, with some increasing and some decreasing mutual information upon CNO application.
+The different signs of the effect could be due to hidden variables such as running speed, number of trials, arousal, thirst/satiety [\cite{allen2019thirst}], that could affect the output of the analysis. 
+Refinement of the experimental protocol to measure some of these behavioral variables could help clarifying this issue.
+The use of more refine methods to include further levels of complexity in the analysis could also address some of these limitations.
+For example, using a generalized linear model [\cite{saleem2018coherent}; \cite{saleem2013integration}] including several behavioral variables as well as treatment to analyze cell activity could partially address this issue. 
+Another possibility would be to normalize mutual information values by the sum of the response and stimulus entropies [\cite{kvaalseth2017normalized}; \cite{timme2018tutorial}]. 
+In this latter way, the variability due to asymmetries in number of trials and cell activity could be accounted for.
+Future analytical work will be needed to clarify this point.
+
+A second discrepancy between the nonlongitudinal and longitudinal recordings was observed in the place field width comparison. 
+In nonlongitudinal recordings, significance in the difference place field width was found when comparing all cells, but not when comparing only place cells. 
+In contrast, in longitudinal recordings place field width was significantly different when considering only place cells, but not when considering all cells.
+However, it should be noted that the tendency in the data was the same in both data sets (i.e., an increase in place field width upon CNO injection).
+Moreover, the absolute value of the difference and the range of the medians in each case was similar for longitudinal and nonlongitudinal recordings, but the number of cells was much larger for longitudinal recordings (964 cells under both conditions in longitudinal recordings vs 454 in nonlongitudinal recordings).
+It is thus possible that the different sample numerosity accounted for the observed results and future experimental work is needed to increase sample size. 
+
+%\textbf{You underline the implications that what you found out has on our current understanding of the brain.} 
+The goal of this thesis was to develop and implement an analytical workflow for the analysis of combined two-photon imaging and pharmacogenetic experiments in awake mice navigating in virtual reality. 
+We developed the analytical package based on information theory [\cite{shannon1948}] and applied it to the the two presented hippocampal data sets. 
+The results of the analysis did not provide a conclusive answer to the question whether manipulation of astrocytic calcium activity changed information content about space in neuronal hippocampal circuits. 
+As discussed in the previous paragraphs, several experimental and analytical improvements are necessary to fully test this hypothesis.
+However, it should be underlined that CNO injection similarly increased place field width and similarly modified the distribution of place field centers in the two data sets. 
+This result suggested that alteration in astrocytic calcium activity might indeed induce reliable changes in neuronal position encoding by changing neuronal response properties. 
+A higher width of place fields and response profiles would be compatible with a less accurate response at the single cell level. 
+However, the increase or non significant change in information content in single neurons may suggest different interpretations. 
+For example, one possibility is that upon CNO injection place cells became less accurate but more reliable in their responses, indicating a role of astrocytes in sharpening neuronal responses. 
+More reliable responses imply less variability on trial-by-trial bases, which could be due to changes in neuronal plasticity properties. 
+Astrocytes play a prominent role in the modulation of neuronal plasticity [\cite{pascual2005}; \cite{serrano2006gabaergic}; \cite{henneberger2010}; \cite{min2012astrocyte}], thus changes in their calcium activity could induce variations in the ability of neuronal networks to adapt to varying environmental conditions. 
+This hypothesis cannot be tested in the current data set, but it is an experimental and theoretical direction we are willing to pursue in the next future. 
+
+Astrocytic calcium dynamics has been observed to play a role not only in the modulation of single cells, but also in the regulation of neuronal networks [\cite{fellin2009endogenous}; \cite{szabo2017extensive}; \cite{bellot2018astrocytic}; \cite{mederos2020gabaergic}]. 
+In the analytical work presented in this thesis, we analyzed neuronal population, but always based on measurement of single cell properties (e.g., information content, width and center of response \textit{per} cell). 
+However, population coding may arise on higher order properties of neuronal networks [\cite{stefanini2020distributed}] that are not captured by single cell properties and that had not been analyzed here. 
+Thus future analytical effort could be focused on addressing this important question. 
+For example, studying the dynamics of neuronal CA1 populations in lower dimensional spaces, by using dimensionality reduction techniques [\cite{marshel2019cortical}], could unmask differences in population coding of space under the different experimental conditions analyzed here (saline vs. CNO).
+Moreover, analyzing the sum (or averages) of information content \textit{per} cell can potentially mask information-rich population properties, as cells can synergically work to encode or represent information about space [\cite{stefanini2020distributed}].
+Various other methods to unravel synergic information content in the network could also be used to further compare treatments at the population level [\cite{pola2003exact}; \cite{magri2009toolbox}]. 
+Finally, alterations in astrocytic calcium activity might change the way population activity is used to decode the animal's position. 
+To test this hypothesis, bayesian or other types of decoders [\cite{zhang1998interpreting}; \cite{shuman2020breakdown}] could be used to compare decoding accuracy under control conditions and after CNO injection. 
+
+To correctly interpret the experimental design presented in this thesis, a more detailed understanding of the CNO effect on astrocytic calcium dynamics is also needed.
+CNO concentrations used in this work induced complex calcium dynamics in astrocytes, with an early increase of calcium activity, which was synchronous across astrocytes and which was followed by a prolonged silencing of astrocytic calcium signaling (see Figure \ref{fig:chap4:CNO_effect_calcium}). 
+This observation is reminiscent of the effects observed in astrocytic calcium dynamics upon pharmacological stimulation of endogenous receptors [\cite{d2007mglur5}; \cite{fellin2004neuronal}; \cite{perea2005}; \cite{fellin2006purinergic}]. 
+It is also important to note that in the two data sets presented in this thesis, two-photon imaging of neuronal activity was performed in the temporal window after CNO application (30-90 minutes after injection) when calcium signaling was largely suppressed in astrocytes. 
+This was because the initial increase in calcium dynamics was confined to a short temporal window (approximately 10 minutes after injection) and that the time necessary to reposition the awake animal under the microscope objective after CNO injection was longer than 10 minutes.
+Thus under the current experimental conditions we cannot conclude whether the effects we observed on neuronal representation of space upon CNO application were due to astrocytic calcium signaling being silenced, being activated, or to a non trivial combination of both effects.
+To address this fundamental question, further characterization of CNO effect in astrocytic networks is needed. 
+In future experiments, we will proceed with lowering the concentration of CNO and built a detailed dose-response curve. 
+Ideally, CNO should induce dynamic changes in calcium signaling in astrocytes for prolonged time (about 1 hour), avoid oversynchronous responses across astrocytic cells, and prevent long lasting dampening of calcium activity. 
+
+The virtual navigation task implemented in the presented experiments had several advantages. 
+It allowed 2-photon imaging and it enabled precise control of environmental cues. 
+However, the head-fixed virtual reality approach also came with limitations [\cite{minderer2016virtual}]: navigation in the hippocampus involves the delicate interplay of several neuronal types (see \ref{chap1:sec:1:subsec2:spat_info_cells}), including head direction cells. 
+In head fixed experiments this degree of complexity is constrained and there is no engagement of the vestibular system [\cite{minderer2016virtual}].
+Thus, performing experiments in freely moving animals, while imaging the neuronal place cells with 1-photon mini-endoscopes [\cite{flusberg2008high}; \cite{aharoni2019all}] will allow to extend the importance of the presented data to a more physiologically-relevant context.  
+
+%\textbf{put together with the synergic idea of both networks. this has a lot of implications}
+As mentioned above, recent work done at my supervisor's laboratory in collaboration with Jacopo Bonato and Stefano Panzeri (see \ref{chap1:sec3:astro_spat_info}) shows that information about space in the hippocampus is not only encoded in neuronal networks, but also in the glial cell astrocyte.
+The possibility that neurons and astrocytes could synergisticly contribute to spatial navigation has several important implications in the way we understand how higher cognitive functions stem from the coordinated activity of populations of different cell types in the brain. 
+Importantly, the synergistic interplay between neuronal and astrocytic networks can only be understood by specifically perturbing each of the involved cell type [\cite{panzeri2017cracking}] and by combining this complex experimental approaches with advanced analysis methods. 
+This thesis work aimed to be an initial and preliminary step in this direction. 
+We believe the presented work contributes to open the door to new and profound questions that we aspire to fully tackle from an experimental and theoretical point of view in the near future. 
+
+% interfering in ca dynamcis --- preliminary not solid evidence
+
+% further discuss plasticity. 
+% stability on its own but also related to plasticity. 
+
+% increase numerocity in both astrocytes
+
+% study in depth what happens with astrocytes with different concentration of CNO
+
+% freely moving animals inscopix.
+
+% Discussion ready GOOD for monday, so sunday evening
+
+% RAtional and aim on monday (Tuesday ready)
+
+% Send tom 3 titles for the thesis. 
