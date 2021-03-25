@@ -44,9 +44,9 @@ The DREADD receptor agonist is clozapine-n-oxyde (CNO), which is an endogenous p
     To investigate calcium dynamics either in astrocytes or neurons, we relied on cell-specific promoters and optimized rAAV tropism (see methods \ref{chap3:sec:1:subsec2:AAV_injection}).}
     \label{fig:chap4:intro_dreadd_molecular}
 \end{figure}
-Upon binding, DREADDs rely on intracellular PKC machinery to activate G-protein coupled receptor (GPCR) signaling pathways (Figure \ref{fig:chap4:intro_dreadd_molecular}). 
+Upon binding, DREADDs activate G-protein coupled receptor (GPCR) signaling pathways (Figure \ref{fig:chap4:intro_dreadd_molecular}). 
 DREADDs were generated in two classes to selectively manipulate either the Gq or Gi intracellular pathway. 
-We selected the hM3Dq version of the DREADD receptor because it allowed spceific action on the Gq pathway. 
+We selected the hM3Dq version of the DREADD receptor because it allowed specific action on the Gq pathway. 
 This manipulation was previously shown to promote calcium elevations in astrocytes [\cite{mu2019}; \cite{adamsky2018astrocytic}]. 
 Throughout this thesis, hM3Dq activation was mediated via intraperitoneal injection of CNO (see methods \ref{chap3:sec:1:subsec2:AAV_injection}). 
 In both astrocytes and neurons (see methods \ref{chap3:sec:1:subsec2:AAV_injection}) calcium activity was monitored using the fast genetically encoded calcium indicator GCaMP6f (Figure \ref{fig:chap4:intro_dreadd_molecular}B). 
@@ -82,15 +82,13 @@ The construct was under the control of the astrocyte-specific promoter GFAP (Fig
     Bottom: high magnification micrographs showing in detail that the vast majority of astrocytes expressed simultaneously hM3Dq-mCherry fusion protein and GCaMP6f indicator (scale $= 30\ \mu m$).}
     \label{fig:chap4:mcherry_gcamp_expression}
 \end{figure}
-Viral delivery was performed via stereotaxic injection into the CA1 area of the right hippocampus (Figure \ref{fig:chap4:mcherry_dq_expression}B).
-This strategy resulted in the vast majority of CA1 astrocytes expressing the hM3Dq fusion construct, as verified by immunolabeling with the astrocyte specific marker $S100\beta$ (Figure \ref{fig:chap4:mcherry_dq_expression}C).
 \begin{figure}[h!]
     \centering
-    \includegraphics[trim={0 280 0 0},clip,width=\textwidth]{Figures/Chapter4/CNO_effect_calcium.pdf}
+    \includegraphics[trim={0 0 500 0},clip,width=0.9\textwidth]{Figures/Chapter4/CNO_effect_calcium.pdf}
     \caption[In vivo two-photon calcium imaging of CA1 astrocytes during pharmacogenetic intervention.]{\textbf{In vivo two-photon calcium imaging of CA1 astrocytes during pharmacogenetic intervention.} 
     A) Schematic of the optical preparation to perform two-photon calcium imaging in astrocytes expressing the genetically encoded calcium indicator GCaMP6f and the pharmacogenetic actuator hM3Dq. 
-    B) Temporal median projection of a sample field of view (scale $30\ \mu m$, field of view size approx $160\ \mu m^2$). 
-    Astrocytic regions of interest (ROIs) have been manually selected on the median projection according to anatomical structures. 
+    B) Temporal median projection of a sample field of view (top, scale $30\ \mu m$, field of view size approx $(160\ \mu m)^2$). 
+    Astrocytic regions of interest (ROIs) have been manually selected on the median projection according to anatomical structures (bottom). 
     C) Representative calcium traces for 40 out of 135 ROIs shown in panel B. We performed six$\cdot 248 s$ temporal serieses interleaved by $300 s$ intervals. 
     Blue shaded areas indicate baseline spontaneous activity. 
     CNO was administered intraperitoneally few seconds before starting the third temporal series (red arrow).  
@@ -98,6 +96,8 @@ This strategy resulted in the vast majority of CA1 astrocytes expressing the hM3
     CNO administration resulted in a sudden increase of calcium activity (third temporal series), followed by a phase in which astrocytes decreased their calcium dynamics (fourth to sixth temporal series).}
     \label{fig:chap4:CNO_effect_calcium}
 \end{figure}
+Viral delivery was performed via stereotaxic injection into the CA1 area of the right hippocampus (Figure \ref{fig:chap4:mcherry_dq_expression}B).
+This strategy resulted in the vast majority of CA1 astrocytes expressing the hM3Dq fusion construct, as verified by immunolabeling with the astrocyte specific marker $S100\beta$ (Figure \ref{fig:chap4:mcherry_dq_expression}C).
 Importantly, within the virally transduced region, hM3Dq expression was limited to the astrocytic outer membranes (Figure \ref{fig:chap4:mcherry_dq_expression}C).
 \begin{figure}[h!]
     \centering
@@ -156,7 +156,7 @@ Seeded-CaImAn was initialized on each bounding box, yielding precise segmentatio
     \includegraphics[trim={0 530 0 0},clip,width=\textwidth]{Figures/Chapter4/FOV_example_setup.pdf}
     \caption[In vivo two-photon calcium imaging of CA1 neurons and pharmacogenetic astrocytic manipulation during virtual navigation.]{\textbf{In vivo two-photon calcium imaging of CA1 neurons and pharmacogenetic astrocytic manipulation during virtual navigation.} 
     A) Schematic of the optical preparation to perform two-photon calcium imaging in CA1 neurons labeled with the genetically encoded calcium indicator GCaMP6f while astrocytic activity was manipulated using the pharmacogenetic actuator hM3Dq. 
-    B) Temporal median projection of a sample field of view (scale $= 30\ \mu m$, field of view size approx $160\ \mu m^2$).}
+    B) Temporal median projection of a sample field of view (scale $= 30\ \mu m$, field of view size approx $(160\ \mu m)^2$).}
     \label{fig:chap4:FOV_example_setup}
 \end{figure}
 For each calcium trace, $\Delta F/F_0$ was computed (Figure \ref{fig:chap4:segmentation_traces_2p}B top), and calcium events were detected with a threshold criterion based on the $\Delta F/F_0$ trace (see Methods \ref{chap3:sec:6:event_det}).
@@ -165,7 +165,7 @@ Calcium events corresponded to above-threshold calcium transients generated by p
 \begin{figure}[h]
     \centering
     \includegraphics[trim={0 0 150 0},clip,width=\textwidth]{Figures/Chapter4/segmentation_traces_2p.pdf}
-    \caption[Segmentation and trace extraction of 2-photon imaging data]{\textbf{Segmentation and trace extraction of 2-photon imaging data.} A) Median projection of a representative recording of CA1 neurons (top) and the detected boxes segmented with CITE-on in red (bottom) (scale $30\ \mu m$, field of view size approx $160\ \mu m^2$).
+    \caption[Segmentation and trace extraction of 2-photon imaging data]{\textbf{Segmentation and trace extraction of 2-photon imaging data.} A) Median projection of a representative recording of CA1 neurons (top) and the detected boxes segmented with CITE-on in red (bottom) (scale $30\ \mu m$, field of view size approx $(160\ \mu m)^2$).
     B) Representative $\Delta F/F_0$ trace extracted using seeded-CaImAn in blue, and the event trace in orange. A zoom of one minute of recording is shown in the bottom panel. The trace corresponds to the green box in bottom panel A.}
     \label{fig:chap4:segmentation_traces_2p}
 \end{figure}
@@ -180,88 +180,133 @@ Modeling, fitting, and estimation of the centers and widths of response profiles
 
 We studied how neuronal activity is related to the animal position in the linear track as a function of the pharmacogenetic perturbation of astrocytic calcium activity.
 In detail, 20 recordings from 7 animals were analyzed. 
-Animals received an intraperitoneal injection of either saline solution (control; $n = 10$) or clozapine-n-oxyde (CNO; $n = 10$). 
-Each injection required the animal to be removed from the two-photon microscope and subsequently repositioned and imaged. In this first dataset, imaging after injection was performed in a field of view that was not necessarily the same as that one monitored in the imaging session immediately right before CNO or saline injection. 
+Animals received an intraperitoneal injection of either saline solution (control; $n = 10$) or clozapine-n-oxyde (CNO; $n = 10$).
+Saline or CNO injection experiments were performed in different days.
+After injection, animals were positioned under the two-photon microscope and imaging started 30 minutes after injection.
+Experimental timeline was defined as in \cite{adamsky2018astrocytic}.
+In this first dataset, imaging was performed in different field of view for each condition.
+%Each injection required the animal to be removed from the two-photon microscope and subsequently repositioned and imaged. In this first dataset, imaging after injection was performed in a field of view that was not necessarily the same as that one monitored in the imaging session immediately right before CNO or saline injection. 
 This meant that the same cell could not be monitored across conditions (nonlongitudinal recordings).
+3 to 6 t-series (750 frames/series, $\sim 250 s$), interleaved by 5 minutes breaks, were acquired during $\sim$ 1 hour virtual navigation session. 
 One recording of each treatment (CNO or saline) was analyzed for each animal, with the exception of animal \textit{0001} (2 recordings for each condition) and animal \textit{0002} (3 recordings for each condition).
 On average, 109 cells were detected \textit{per} FOV (min 50; max 165), resulting in a total of 2193 cells studied.
 Further imaging sessions were performed in all animals, but they were discarded due to technical issues (e.g., large movement artifacts). 
 \begin{SCfigure}[][h]
     %\centering
-    \includegraphics[trim={0 0 710 0},clip,width=.3\textwidth]{Figures/Chapter4/pf_gaussian_fitting.pdf}
+    \includegraphics[trim={0 0 705 0},clip,width=.3\textwidth]{Figures/Chapter4/pf_gaussian_fitting.pdf}
     \caption[Place field estimation]{\textbf{Place field estimation.} Representative examples of the normalized response profiles of five cells (black line) with their gaussian fit (dotted gray lines) to estimate place fields. 
-    The gray-shadowed areas show the width of the place fields, which is defined as $\mu \pm \sigma$, with $\mu$ and $\sigma$ being the mean and standard deviation of the fit, respectively.}
+    The gray-shadowed areas show the width of the place fields, which is defined as $\mu \pm \sigma$, with $\mu$ and $\sigma$ being the mean and standard deviation of the fit, respectively.
+    Vertical scale bar $= 1$}
     \label{fig:chap4:pf_gaussian_fitting}
 \end{SCfigure}
 
 We then applied an information theory approach (see introduction) to compute the amount of spatial information contained in each identified neuron. 
-More specifically, we computed the Shannon entropy (eq. \ref{eqn:entropy} of the introduction) and then the mutual information (eq. \ref{eqn:mutualinfo2} of the introduction) about the spatial variable contained in the calcium signal extracted from each identified neuron. 
-For each neuron, we then calculated whether the amount of spatial information was significant by comparing the mutual information of that cell with a surrogate distribution of mutual information values (see methods \ref{chap3:sec:7:subsec2:pc_analysis}).
+More specifically, we computed the Shannon entropy (eq. \ref{eqn:entropy} of the introduction) and then the mutual information (eq. \ref{eqn:mutualinfo2} of the introduction) about the spatial variable contained in the calcium signal extracted from each identified neuron.
+To correct for biases in MI values, we first computed the $NsR$ parameter (eq. \ref{eqn:NsR}) for all recordings as a function of the number of response (calcium activity) and stimulus (position) bins (Figure \ref{fig:chap4:bias_corr_2p}A).
+Note that $NsR$ parameter depends only on spatial occupancy map and binning choice and not in cell activity, therefore it has to be computed once for each experimental session (and not for each cell).
+$NsR=3$ was considered a threshold above which description of the variables with respect to the number of trials was acceptable (red squares).
+We then computed average mutual information values for different binning of response and stimulus (Figure \ref{fig:chap4:bias_corr_2p}B).
+Without bias correction values of mutual information increased with higher number of bins in both variables.
+We then calculated the contribution of the bias computed as described in section \ref{chap3:sec:7:subsec3:bias_correction} of the methods (Figure \ref{fig:chap4:bias_corr_2p}C).
+As expected, the bias increased with higher number of bins, which was represented in the raw mutual information values.
+We calculated the average mutual information values after bias subtraction (eq. \ref{eqn:unbias_mutualinfo}) for different configurations of binning (Figure \ref{fig:chap4:bias_corr_2p}D).
+Bias-corrected mutual information values initially increased, then plateaued, and finally decreased with the number of spatial bins (Figure \ref{fig:chap4:bias_corr_2p}D). 
+In those cases, the bias term highly contributed to the mutual information value, and its subtraction resulted in a strong decrease in the bias-corrected MI values, which, in turn, was observed as a negative change in the slope of the curves.
+For each ROI and each binning combination, we calculated whether the amount of spatial information was significant by comparing the mutual information of that cell with a surrogate distribution of mutual information values (see methods \ref{chap3:sec:7:subsec2:pc_analysis}).
+\begin{figure}[h]
+    \centering
+    \includegraphics[trim={0 0 0 0},clip,width=\textwidth]{Figures/Chapter4/bias_correction_2p.pdf}
+    \caption[Bias correction and binning selection for mutual information calculation]{\textbf{Bias correction and binning selection for mutual information calculation.} 
+    A) Matrix of $log(N_sR)$ parameter values averaged across FOVs for different response and stimulus binning. 
+    $log(N_sR)=3$ was considered an adequate quality threshold.
+    B) Across ROIs average MI values before bias correction as a function of spatial binning, each line corresponds to a different response binning.
+    C) Average contribution of the bias in MI values in (B) calculated as described in methods \ref{chap3:sec:7:subsec3:bias_correction}, colors and axis as in (B).
+    D) Across ROIs average bias-corrected MI values as a function of spatial binning, colors as in (B). 
+    E) Bias corrected MI values as in (D) separated in cells with significant information content (filled lines) and without (dotted lines). 
+    F) Fraction of ROIs with significant information content as a function of binning as in (B).}
+    \label{fig:chap4:bias_corr_2p}
+\end{figure}
+Separating the bias-corrected MI values for ROIs with significant information content from those without implies a clear split in the bias-corrected MI values (Figure \ref{fig:chap4:bias_corr_2p}E), with non-place cells having distributions close to zero. 
+Finally, we calculated the average fractions of significant ROIs as a function of binning (Figure \ref{fig:chap4:bias_corr_2p}F).
+Plots \ref{fig:chap4:bias_corr_2p}A,D,E and F were performed and inspected separately for each dataset, and appropriate binning was selected such that the level of description was as high as possible (higher number of bins) while having $SnR>3$ and maximized bias corrected MI values (before the change in slope).
+The same selected binning parameters where used for all recordings and all FOVs from the same dataset.
+
+After appropriate selection of response and stimulus binning, we calculated, for each neuron, whether the amount of spatial information was significant by comparing the mutual information of that cell with a surrogate distribution of mutual information values (see methods \ref{chap3:sec:7:subsec2:pc_analysis}).
 In figure \ref{fig:chap4:snake_plot_2p}, we show the normalized calcium responses of all neurons with significant information content about space (see methods \ref{chap3:sec:7:subsec2:pc_analysis}) ordered according to the position of the center of the response field in increasing order.
-The left panel shows recordings after saline injection, and the right panel shows recordings after CNO injection (283 and 329 informative  ROIs out  of  1192 and 1001 total, respectively). 
+The left panel shows recordings after saline injection, and the right panel shows recordings after CNO injection (193 and 261 informative  ROIs out  of  1192 and 1001 total, respectively). 
 In both cases, the place field of neurons spans the whole virtual corridor, allowing for complete mapping of the space, regardless of treatment. 
-In the case of place cells, the centers $\mu$ and widths $\sigma$ of the principal gaussian component had a straightforward interpretation as the center and width of the place field. 
-For cells without significant information content about space, the $\mu$ and $\sigma$ parameters give us information about where the animal responded maximally on average and how spread out the response was in space (Figure \ref{fig:chap4:pf_gaussian_fitting}).
-This information is relevant when trying to uncover the effects of alterations in calcium activity in astrocytes on neuronal networks in the hippocampus beyond place cell encoding. 
+In the case of place cells, the centers $\mu$ and widths $\sigma$ of the principal gaussian component had a straightforward interpretation as the center and width of the \textbf{principal} place field. 
+For cells without significant information content about space, the $\mu$ and $\sigma$ parameters give us information about where the cells responded maximally on average and how spread out the response was in space (Figure \ref{fig:chap4:pf_gaussian_fitting}).
+This information is relevant when trying to uncover the effects of alterations in calcium activity in astrocytes on neuronal networks in the hippocampus beyond place cell encoding.
 \begin{SCfigure}[][h]
     \centering
-    \includegraphics[trim={0 0 500 0},clip,width=0.5\textwidth]{Figures/Chapter4/snake_plots_2p.pdf}
+    \includegraphics[trim={10 0 510 0},clip,width=0.5\textwidth]{Figures/Chapter4/snake_plots_2p.pdf}
     \caption[Normalized calcium responses as a function of position for neurons that contain significant amount of spatial information]{\textbf{Normalized calcium responses as a function of position for neurons that contain significant amount of spatial information.} 
-    Left panel, responses from recordings in which the animal was injected with saline solution (n = 283 informative ROIs out of 1192 total ROIs, 10 imaging sessions from 7 animals). 
-    Right panel, responses from recordings in which the animal was injected with CNO solution (n = 329 informative ROIs out of 1001 total ROIs, 10 imaging sessions from 7 animals). 
+    Left panel, responses from recordings in which the animal was injected with saline solution (n = 193 informative ROIs out of 1192 total ROIs, 10 imaging sessions from 7 animals). 
+    Right panel, responses from recordings in which the animal was injected with CNO solution (n = 261 informative ROIs out of 1001 total ROIs, 10 imaging sessions from 7 animals). 
     Responses are ordered according to the position of the center of the response field (from minimum to maximum). 
     As described in the results, the FOV which was imaged in the saline condition was different from the one recorded in the CNO condition (nonlongitudinal recordings).}
     \label{fig:chap4:snake_plot_2p}
 \end{SCfigure}
 
-To correct for biases in MI values, we first computed the $NsR$ parameter (see methods \ref{chap3:sec:7:subsec3:bias_correction}) for all recordings as a function of the number of response (calcium activity) and stimulus (position) bins (Figure \ref{fig:chap4:bias_corr_2p}A).
-$NsR=3$ was considered a threshold above which description of the variables with respect to the number of trials was acceptable (red squares).
-We then calculated the average mutual information values after bias subtraction for different configurations of binning (Figure \ref{fig:chap4:bias_corr_2p}B).
-Bias-corrected mutual information values initially increased, then plateaued, and finally decreased with the number of spatial bins (Figure \ref{fig:chap4:MI_C_2p}C). 
-In those cases, the bias term highly contributed to the mutual information value, and its subtraction resulted in a strong decrease in the bias-corrected MI values, which, in turn, was observed as a negative change in the slope of the curves. 
-Separating the bias-corrected MI values for ROIs with significant information content from those without implies a clear split in the bias-corrected MI values (Figure \ref{fig:chap4:bias_corr_2p}C), with nonplace cells having distributions close to zero. 
-Finally we calculated the average fractions of significant ROIs as a function of binning (Figure \ref{fig:chap4:bias_corr_2p}).
-All four plots were performed and inspected separately for each data set, and appropriate binning was selected such that the level of description was as high as possible (higher number of bins) while having $SnR>3$ and maximized bias corrected MI values (before the change in slope).  
+To study the effect of CNO injection on the information content about animal position in CA1 neuronal calcium activity, we calculated and compare the bias-corrected MI distributions for all cells, that is, considering also non-place cells (Figure \ref{fig:chap4:MI_C_2p}), and for place cell only populations (Figure \ref{fig:chap4:MI_C_PC_2p}), in each condition.
+In the first case (Figure \ref{fig:chap4:MI_C_2p}) we first compared the distribution of MI values after saline or CNO injection for each animal.
+Boxplots and statistical testing are reported in each of the 7 panels.
+Here, both place cells and nonspatial encoding cells are pooled together; thus, the distributions are centered close to zero and heavy tailed towards positive values.
+To obtain a better sense of the the impact of the manipulation, we normalized the MI values to the maximal amount of MI possibly conveyable by the neurons, that is, dividing the MI values by the smallest between the stimulus and response entropies:
+\begin{equation}
+    MI_{norm} = \frac{MI_{unbiased}}{\min(H(F),H(P))}
+\end{equation}
+And performed the same comparisons (Figure \ref{fig:chap4:MI_C_norm_2p}).
+Tendencies and statistical significance for each animal are analogous to those without normalization (Figure \ref{fig:chap4:MI_C_2p}).
+All future comparisons between MI values were performed separately after normalization and general tendencies were maintained (data not shown).
 \begin{figure}[h]
     \centering
-    \includegraphics[trim={0 0 300 0},clip,width=\textwidth]{Figures/Chapter4/bias_correction_2p.pdf}
-    \caption[Bias correction and binning selection for mutual informatin calculation]{\textbf{Bias correction and binning selection for mutual informatin calculation.} A) Matrix of log SnR parameter values for different response and stimulus binning. 
-    log SnR = 3 was considered a adequate quality threshold. 
-    B) Average bias corrected MI values as a function of spatial binning, each line corresponds to a different response binning. 
-    C) Bias corrected MI values as in (A) separated in cells with significant information content (filled lines) and without (dotted lines). 
-    D) Fraction of ROIs with significant information content as a function of binning as in (A).}
-    \label{fig:chap4:bias_corr_2p}
+    \includegraphics[trim={0 0 160 0}, clip, width=\textwidth]{Figures/Chapter4/MI_C_all_cells_2p.pdf}
+    \caption[Difference in information content about animals position in neuronal cells after CNO application for each animal]{\textbf{Difference in information content about animals position in neuronal cells after CNO application for each animal.} 
+    Box plots of bias corrected MI values for each animal (each panel represents an animal) after saline or CNO injection. 
+    Not all animals have significantly different information content, and there's heterogeneity in the overall trends for each animal, in 4 out of 6 animals cells increase their mean information content.}
+    \label{fig:chap4:MI_C_2p}
+\end{figure}
+Although not all animals had significantly different MI distributions (Mann-Whitney U test was performed in each case), when comparing averages across animals, we observed a significant increase in information content in experiments following CNO injection for bias corrected values (Wilcoxon paired test, $p=0.028$, Figure \ref{fig:chap4:average_MI_C_2p} left panel), normalized values (Wilcoxon paired test, $p=0.028$, Figure \ref{fig:chap4:average_MI_C_2p} right panel) and for the percentage of variation (Wilcoxon paired test, $p=0.028$, Figure \ref{fig:chap4:average_MI_C_2p} middle panel).
+\begin{figure}[h!]
+    \centering
+    \includegraphics[trim={0 0 160 0}, clip, width=\textwidth]{Figures/Chapter4/MI_C_norm_all_cells_2p.pdf}
+    \caption[Tendencies in information content difference after CNO application for each animal persist when normalizing MI values]{\textbf{Tendencies in information content difference after CNO application for each animal persist when normalizing MI values.} Box plots of bias corrected normalized MI values for each animal (each panel represents an animal) after saline or CNO injection. 
+    Tendencies and significance in treatment differences are maintained for all animals after normalization of MI values.}
+    \label{fig:chap4:MI_C_norm_2p}
+\end{figure}
+\begin{figure}[h!]
+    \centering
+    \includegraphics[trim={0 210 0 0}, clip, width=\textwidth]{Figures/Chapter4/MI_C_averages_all_cells_2p.pdf}
+    \caption[Higher information content about animals position in neuronal cells after CNO application]{\textbf{Higher information content about animals position in neuronal cells after CNO application.} 
+    Not all animals have significantly different information content, but they do when averaged together (left panel, Wilcoxon paired test, $p = 0.028$).
+    To get a better sense of the impact of the manipulation we computed the percentage of variation per animal in CNO compared to saline condition (middle panel, Wilcoxon paired test, $p = 0.028$).
+    The increase of MI was still significant when comparing average normalized mutual information (right panel, $p = 0.028$).}
+    \label{fig:chap4:average_MI_C_2p}
 \end{figure}
 
-To study the effect of CNO injection on the information content about animal position in CA1 neuronal calcium activity, we calculated the bias-corrected MI for all cells (Figure \ref{fig:chap4:MI_C_2p}).
-We first compared the distribution of MI values after saline or CNO injection for each animal.
-Boxplots and statistical testing are reported in each of the first 7 panels.
-Here, both place cells and nonspatial encoding cells are pooled together; thus, the distributions are centered close to zero and heavy tailed towards positive values. 
-Although not all animals had significantly different MI distributions (Mann-Whitney U test was performed in each case), when comparing averages across animals, we observed a significant increase in information content in experiments following CNO injection (Wilcoxon paired test, $p=0.028$, Figure \ref{fig:chap4:MI_C_2p} bottom right panel).
-
-Variability between data from different animals could bring differences across distributions that might mask the effect of CNO treatment. 
+Variability between data from different animals could bring differences across distributions that might mask the effect of CNO treatment.
 To account for this effect, we used a linear mixed effect (LME) model, taking the treatment (CNO or saline injection) as a fixed effect and the animal identity as a random effect (see methods \ref{chap3:sec:8:stats}).
 In each case, we compared 2 models-one with a random intercept (LME1, eq. \ref{eqn:LMEM1}) and another with a random intercept and a random slope (LME2, eq. \ref{eqn:LMEM2}). 
 If the model that included the random slope explained significantly more variance, then this model was preferred (ANOVA test for model comparison).
 If, in contrast, the models were not significantly different, the simpler test was used.
 When comparing all cells from all animals, the LME2 model was used (LME2 explained significantly more variance than did LME1, using ANOVA for model comparison, $p=6\cdot 10^{-4}$).
 The fitted slope of the LME2 model was -0.01 (negative values implied a decrease in information for saline conditions), and the effect of the treatment was found to be statistically significant (Type II Wald chi-square tests, $p=0.005$).
-\begin{figure}[h]
+\begin{figure}[h!]
     \centering
-    \includegraphics[trim={0 0 160 0}, clip, width=\textwidth]{Figures/Chapter4/MI_C_all_cells_2p.pdf}
-    \caption[Higher information content about animals position in neuronal cells after CNO application]{\textbf{Higher information content about animals position in neuronal cells after CNO application.} 
-    Box plots of bias corrected MI values for each animal (each panel represents an animal) after saline or CNO injection. 
-    Not all animals have significantly different information content, but they do when averaged together (bottom right panel, Wilcoxon paired test, $p = 0.028$).}
-    \label{fig:chap4:MI_C_2p}
+    \includegraphics[trim={0 0 160 0}, clip, width=\textwidth]{Figures/Chapter4/MI_C_place_cells_2p.pdf}
+    \caption[Difference in information content about animals position in place cells after CNO application]{\textbf{Difference in information content about animals position in place cells after CNO application.} 
+    Box plots of bias corrected MI values for each animal (each panel represents an animal) after saline or CNO injection for place cells populations. 
+    Not all animals have significantly different information content, when averaged together there is an increase tendency close to significance (bottom right panel, Wilcoxon paired test, $p = 0.063$, but see main text for LMEM statistical testing).}
+    \label{fig:chap4:MI_C_PC_2p}
 \end{figure}
 
-Because place cells contributed the most to the information content about the animal position, we asked whether changes in MI values were observed when comparing CNO and saline conditions and when only place cells were considered. 
+Because place cells contributed the most to the information content about the animal position, we asked whether changes in MI values were observed when comparing CNO and saline conditions and when only place cells were considered (Figure \ref{fig:chap4:MI_C_PC_2p}). 
 We fitted LME1 considering only place cells (note that this is a test on a subsample of the previous distribution), obtaining a slope of -0.026 and an even more significant effect ($p=4 \cdot 10^{-6}$).
-These results showed that the increase in the information content after CNO injection was higher when considering only place cells. 
+These results showed that the increase in the information content after CNO injection was higher when considering only place cells.
+On the other hand, when performing a Wilcoxon test on animal averages, the difference was not significant (Figure \ref{fig:chap4:MI_C_PC_2p} bottom right panel), this evidenced the importance of performing adequate and sufficiently powerful statistical tests considering the full extent of the data.
 
-To determine whether the effect could be influenced by the number of cells in each condition or whether CNO injection could have an effect on the number of cells detected, we compared the number of cells found in each condition (Figure \ref{fig:chap4:pc_quantification_2p} left panel) and found no significant difference (Wilcoxon paired test, $p=0.18$). 
-We then quantified the number of place cells in each case (Figure \ref{fig:chap4:pc_quantification_2p} center panel) and found a small but significant increase after CNO injection (Wilcoxon paired test, $p=0.046$).
-We then computed the ratio between the number of place cells and the total number of cells for each animal (Figure \ref{fig:chap4:pc_quantification_2p} right panel), which was found to be significantly higher for the CNO condition (Wilcoxon paired test, $p=0.017$).
 \begin{figure}
     \centering
     \includegraphics[trim={0 200 0 0},clip,width=\textwidth]{Figures/Chapter4/pc_quantification_2p.pdf}
@@ -271,23 +316,30 @@ We then computed the ratio between the number of place cells and the total numbe
     \label{fig:chap4:pc_quantification_2p}
 \end{figure}
 
+To determine whether the effect could be influenced by the number of cells in each condition or whether CNO injection could have an effect on the number of cells detected, we compared the number of cells found in each condition (Figure \ref{fig:chap4:pc_quantification_2p} left panel) and found no significant difference (Wilcoxon paired test, $p=0.18$). 
+We then quantified the number of place cells in each case (Figure \ref{fig:chap4:pc_quantification_2p} center panel) and found a small but significant increase after CNO injection (Wilcoxon paired test, $p=0.046$).
+We then computed the ratio between the number of place cells and the total number of cells for each animal (Figure \ref{fig:chap4:pc_quantification_2p} right panel), which was found to be significantly higher for the CNO condition (Wilcoxon paired test, $p=0.017$).
+
 We further explored whether CNO application changed other properties of neuronal place cells.
 We compared the center and width of response profiles and/or place fields after saline injection and after CNO injection (Figure \ref{fig:chap4:width_center_2p}).
 When considering all cells, the response profile width was slightly but significantly higher after CNO injection (Figure \ref{fig:chap4:width_center_2p} top left panel, Kolmogorov-Smirnov test, $p=0.005$), as evidenced by a small shift to the right in the empirical distribution function (EDF).
 The distributions of response profile centers were significantly different (Figure \ref{fig:chap4:width_center_2p} top right panel, $p=9\cdot 10^{-4}$).
-We then considered the same comparisons for place field widths and centers, taking into account exclusively place cells (Figure \ref{fig:chap4:width_center_2p} bottom left and right panels, respectively). 
-In both cases, the difference between distributions was not significant ($p=0.1$ for PF width and $p=0.13$ for PF centers). 
+We then considered the same comparisons for place field widths and centers, taking into account exclusively place cells (Figure \ref{fig:chap4:width_center_2p} center left and right panels, respectively). 
+In both cases, the difference between distributions was not significant ($p=0.1$ for PF width and $p=0.13$ for PF centers), however, median PF width was significantly higher in CNO condition (Mann-Whitney  U  test $p=0.024$).
+Finally we compared response profile widths and centers for non-place cells (Figure \ref{fig:chap4:width_center_2p} bottom left and right panels, respectively).
+Distribution of both, response profile widths and centers, were significantly different ($p=0.03$ and $p=10^{-4}$)   
 
-Taken together, these results suggest that CNO application, and, consequently, the modification of calcium signaling in astrocytes significantly affected the neuronal representation of space and the properties of neuronal place cells in the hippocampus of mice navigating in a unidimensional virtual corridor. 
 \begin{figure}[h]
     \centering
     \includegraphics[trim={0 0 360 0},clip,width=\textwidth]{Figures/Chapter4/pf_width_center_2p.pdf}
-    \caption[Difference in response profiles and place fields widths and centers after CNO injection and after saline injection]{\textbf{Difference in response profiles and place fields widths and centers after CNO injection and after saline injection.} 
-    Distribution of response profiles width (top left panel, kolmogorov-smirnov test $p=0.005$) and centers (top right panel, $p=9 \cdot 10^{-4}$) for all cells detected ($n=1192$ saline, $n=1001$ CNO). 
-    Distribution of place fields width (center left panel, $p=0.10$) and centers (center right panel, $p=0.13$) for place cells ($n=193$ saline, $n=261$ CNO).
-    Distribution function of response profiles width (bottom left panel, $p=0.03$) and centers (bottom right panel, $p=10^{-4}$) for non-place cells ($n=999$ saline, $n=740$ CNO).}
+    \caption[Difference in response profiles and place fields width and center distributions after CNO injection and after saline injection]{\textbf{Difference in response profiles and place fields width and center distributions after CNO injection and after saline injection.} 
+    Distribution of response profiles width (top left panel, Kolmogorov-Smirnov test on distributions $p=0.005$ ) and centers (top right panel, $p=9 \cdot 10^{-4}$) for all cells detected ($n=1192$ saline, $n=1001$ CNO). 
+    Distribution of place fields width (center left panel, $p=0.10$, but a Mann-Whitney U test showed significantly higher median place field size for CNO $p = 0.024$) and centers (center right panel, $p=0.13$) for place cells ($n=193$ saline, $n=261$ CNO).
+    Distribution function of response profiles width (bottom left panel, $p=0.03$) and centers (bottom right panel, $p=10^{-4}$) for non-place cells ($n=999$ saline, $n=740$ CNO). 
+    All comparisons and tests were performed between full distributions with the exception of the median test for place field width.}
     \label{fig:chap4:width_center_2p}
 \end{figure}
+Taken together, these results suggest that CNO application, and, consequently, the modification of calcium signaling in astrocytes significantly affected the neuronal representation of space and some aspects of neuronal response properties in the hippocampus of mice navigating in a unidimensional virtual corridor. 
 There are, however, two aspects of the data presented that should be considered. 
 First, the dataset presented above had large differences in the number of cells detected across FOVs. 
 This could in principle introduce biases in the comparisons, with FOVs with a higher number of cells having a larger influence on the result. 
@@ -309,23 +361,17 @@ To compare segmentations of concatenated vs. individual t-series, we computed th
     \frac{tp}{tp+\frac{1}{2}(fp+tn)}
 \end{equation*}
 where $tp$, $fp$ and $tn$ are the true positives, false positives, and true negatives, respectively. The F-1 score ranges between 0 and 1.
-In each case, to compute these values, the segmentation of one of the t-series was considered the ground truth, and the other was used for comparison. 
-The closer to 1 the F-1 score was, the larger was the overlap between segmentations in different t-series.
-In the example shown in fig. \ref{fig:chap4:example_longitudinal_FOV}, the F-1 score varied between 0.75 and 1 for all pairs of recordings (Figure \ref{fig:chap4:segmentation_long}C), meaning that for any pair of t-series, the overlap between segmentation was higher than 75\%.
-Identities shared across all 3 recording days (saline, CNO, and saline) and segmentations were considered successfully tracked.
 \begin{figure}[h]
     \centering
     \includegraphics[trim={0 240 0 0},clip,width=\textwidth]{Figures/Chapter4/example_longitudinal_FOV.pdf}
-    \caption[Fields of view were successfully tracked and recorded across days]{\textbf{Fields of view were successfully tracked and recorded across days.} 
-    From left to right, median projection of first day of saline, CNO and second day of saline injections of a representative FOV (scale $60\ \mu m$}
+    \caption[Fields of view were successfully tracked and recorded across days]{\textbf{Fields of view were successfully tracked and recorded across days.}
+    From left to right, median projection of first day of saline, CNO and second day of saline injections of a representative FOV (scale $60\ \mu m$)}
     \label{fig:chap4:example_longitudinal_FOV}
 \end{figure}
-
-We computed the normalized calcium responses of all neurons with significant information content about space, as shown in Figure \ref{fig:chap4:snake_plot_2p}, for each of the 3 days of recordings (Figure \ref{fig:chap4:snake_plots_long}). 
-Identities were ordered according to the position of the center of the response field in increasing order.
-The first day of saline injection recordings is shown in the left panel, CNO injection recordings are shown in the middle panel, and the second day of saline recordings is shown in the right panel (488, 476 and 472 informative  ROIs out of 1740, 1708 and 1758 total, respectively).
-As in the nonlongitudinal recordings, in every condition, PF spans the whole trace, allowing for the complete mapping of space regardless of treatment.
-Recordings from 3 animals were analyzed.
+In each case, to compute these values, the segmentation of one of the t-series was considered the ground truth, and the other was used for comparison. 
+The closer to 1 the F-1 score was, the larger was the overlap between segmentations in different t-series.
+In the example shown in Figure \ref{fig:chap4:example_longitudinal_FOV}, the F-1 score varied between 0.75 and 1 for all pairs of recordings (Figure \ref{fig:chap4:segmentation_long}C), meaning that for any pair of t-series, the overlap between segmentation was higher than 75\%.
+Identities shared across all 3 recording days (saline, CNO, and saline) and segmentations were considered successfully tracked.
 \begin{figure}
     \centering
     \includegraphics[trim={0 230 0 0},clip,width=\textwidth]{Figures/Chapter4/segmentation_long.pdf}
@@ -335,19 +381,33 @@ Recordings from 3 animals were analyzed.
     C) F-1 matrix for detections performed in the concatenated t-series and the 3 different days.}
     \label{fig:chap4:segmentation_long}
 \end{figure}
-
-To study how alterations in astrocytic calcium activity influenced spatial mapping in the same population of neurons, we first compared the distributions of MI values after saline (first and second day) or CNO injection for each animal with the non-longitudinal recordings (section \ref{chap4:sec:3:linear_track}).
-Boxplots and statistical tests are reported in each of the 6 panels of Figure \ref{fig:chap4:MI_C_all_cells_longitudinal}.
 \begin{SCfigure}[][h]
     \centering
-    \includegraphics[trim={0 0 450 0},clip,width=0.5\textwidth]{Figures/Chapter4/snake_plots_long.pdf}
+    \includegraphics[trim={110 20 180 20},clip,width=0.5\textwidth]{Figures/Chapter4/sal_cno_sig_snake_plots_long.png.pdf}
     \caption[Normalized calcium responses as a function of position for neurons that contain significant amount of spatial information]{\textbf{Normalized calcium responses as a function of position for neurons that contain significant amount of spatial information.} 
     Left panel, responses from recordings in which the animal was injected with saline solution (n = 488 informative ROIs out of 1740 total ROIs, 6 imaging sessions from 6 FOVs). 
     Center panel, responses from recordings in which the animal was injected with CNO solution (n = 476 informative ROIs out of 1708 total ROIs, 6 imaging sessions from 6 FOVs). 
     Right panel, responses from recordings in which the animal was injected with saline solution after the CNO day (n = 472 informative ROIs out of 1758 total ROIs, 6 imaging sessions from 6 FOVs). 
-    Responses are ordered according to the position of the center of the response field (from minimum to maximum).}
+    Responses are ordered according to the position of the center of the response field (from minimum to maximum), scale $= 50$ ROIs.}
     \label{fig:chap4:snake_plots_long}
 \end{SCfigure}
+
+We computed the normalized calcium responses of all neurons with significant information content about space, as shown in Figure \ref{fig:chap4:snake_plot_2p}, for each of the 3 days of recordings (Figure \ref{fig:chap4:snake_plots_long}). 
+Identities were ordered according to the position of the center of the response field in increasing order.
+The first day of saline injection recordings is shown in the left panel, CNO injection recordings are shown in the middle panel, and the second day of saline recordings is shown in the right panel (488, 476 and 472 informative  ROIs out of 1740, 1708 and 1758 total, respectively).
+As in the nonlongitudinal recordings, in every condition, PF spans the whole trace, allowing for the complete mapping of space regardless of treatment.
+Recordings from 3 animals were analyzed.
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=\textwidth]{Figures/Chapter4/MI_C_all_cells_longitudinal.pdf}
+    \caption[Bias corrected MI distributions under the different experimental conditions]{\textbf{Bias corrected MI distributions under the different experimental conditions.} Each panel represents a different FOV, with the box plots of MI distributions for first saline injection day, CNO injection day, and second saline injection day. Panels in the same column correspond to the same animal. Right-most panel shows the difference between MI values averages for each FOV (gray lines) and the overall average (black line), with no significant difference between different days (Wilcoxon paired test with Bonferroni correction, saline 0 vs CNO $p=0.91$; saline 0 vs saline 1 $p=0.91$; CNO vs saline 1 $p=0.34$)}
+    \label{fig:chap4:MI_C_all_cells_longitudinal}
+\end{figure}
+
+Although the procedure to track neurons was successful, the sets of neurons in each session were not entirely overlapping: not all cells from each recording had a corresponding one in the following sessions.
+For this reason, we first studied how alterations in astrocytic calcium activity influenced spatial mapping in the same population of neurons, by comparing the distributions of MI values after saline (first and second saline days) or CNO injection for each animal, considering the set of neurons in each FOV as independent from the others, analogously to the nonlongitudinal recordings (section \ref{chap4:sec:3:linear_track}), and then we compared only the tracked identitities (see bellow).
+Boxplots and statistical tests for the nonlongitudinal-like analysis are reported in each of the 6 panels of Figure \ref{fig:chap4:MI_C_all_cells_longitudinal}.
+
 Both place cells and nonspatial encoding cells were pooled together; thus, the distributions were centered close to zero and heavy tailed towards positive values.
 Distributions of MI across conditions showed heterogeneous behavior across animals, and in contrast to observations for nonlongitudinal recordings, the difference in the averages was not significantly different for any of the comparisons between conditions (\ref{fig:chap4:MI_C_all_cells_longitudinal} right-most panel, Wilcoxon paired test with Bonferroni correction; saline 0 vs. CNO, $p=0.91$; saline 0 vs. saline 1, $p=0.91$; CNO vs. saline 1, $p=0.34$).
 
@@ -356,23 +416,6 @@ First, we fitted an LME2 model, considering only treatment as the fixed effect.
 The fitted slope of the LME2 model was small, at $5\cdot 10^{-4}$, and positive, which implies a small increase in the information content on saline days.
 In contrast to observations for nonlongitudinal recordings, the effect of treatment was found to be statistically nonsignificant (Type II Wald chi-square tests, $p=0.87$).
 We then examined the effect of CNO injection when considering only place cell information content. We fitted an LME1 model with similar results-the fitted slope was 0.001, and the effect was nonsignificant ($p=0.87$).
-\begin{figure}[h]
-    \centering
-    \includegraphics[width=\textwidth]{Figures/Chapter4/MI_C_all_cells_longitudinal.pdf}
-    \caption[Bias corrected MI distributions under the different experimental conditions]{\textbf{Bias corrected MI distributions under the different experimental conditions.} Each panel represents a different FOV, with the box plots of MI distributions for first saline injection day, CNO injection day, and second saline injection day. Panels in the same column correspond to the same animal. Right-most panel shows the difference between MI values averages for each FOV (gray lines) and the overall average (black line), with no significant difference between different days (Wilcoxon paired test with Bonferroni correction, saline 0 vs CNO $p=0.91$; saline 0 vs saline 1 $p=0.91$; CNO vs saline 1 $p=0.34$)}
-    \label{fig:chap4:MI_C_all_cells_longitudinal}
-\end{figure}
-
-In doing this analysis, we pooled together two different days of saline injection, with one taking place before and one after the CNO injection day. 
-To better compare the results of the analysis of this dataset with those of the nonlongitudinal recording (wherein only one saline condition was available), we limited the analysis to the first day of saline injection and the following CNO injection day.
-We fitted an LME2 model for all cells and found that the effect of the treatment was not significant ($p=0.96$) and that the slope was negative, at $-2\cdot 10^-4$.
-We then fitted an LME1 model, taking into consideration only place cells from the first two days and obtained a fitted slope of -0.001 (10\% decrease on saline day, $p=0.57$).
-Finally, we fitted the LME2 model to compare the two saline days, and again, we found no statistically significant difference ($p=0.74$).  
-
-We then compared the center and width of the response profiles and/or place fields for the first day of the saline injection and CNO injection experiments (Figure \ref{fig:chap4:pf_width_center_long}).
-When considering all cells, the response profile width was not significantly different after CNO injection (Figure \ref{fig:chap4:pf_width_center_long} top left panel, Kolmogorov-Smirnov test, $p=0.62$).
-The distributions of response profile centers were significantly different (Figure \ref{fig:chap4:pf_width_center_long} top right panel, $p=0.009$).
-When considering the subset formed by only place cells and observing place field widths and centers (Figure \ref{fig:chap4:pf_width_center_long} bottom left and right panels, respectively), we observed a statistically significant increase in PF width ($p=8.8 \cdot 10^{-6}$) and a significant difference between PF center distributions ($p=0.001$).
 \begin{figure}
     \centering
     \includegraphics[width=\textwidth]{Figures/Chapter4/pf_width_center_long.pdf}
@@ -382,11 +425,40 @@ When considering the subset formed by only place cells and observing place field
     \label{fig:chap4:pf_width_center_long}
 \end{figure}
 
+In doing this analysis, we pooled together two different days of saline injection, with one taking place before and one after the CNO injection day. 
+To better compare the results of the analysis of this dataset with those of the nonlongitudinal recording (wherein only one saline condition was available), we limited the analysis to the first day of saline injection and the following CNO injection day.
+We fitted an LME2 model for all cells and found that the effect of the treatment was not significant ($p=0.96$) and that the slope was negative, at $-2\cdot 10^-4$.
+We then fitted an LME1 model, taking into consideration only place cells from the first two days and obtained a fitted slope of -0.001 (10\% decrease on saline day, $p=0.57$).
+Finally, we fitted the LME2 model to compare the two saline days, and again, we found no statistically significant difference ($p=0.74$).  
+
+We then compared the center and width of the response profiles and/or place fields for the first day of the saline injection and CNO injection experiments (Figure \ref{fig:chap4:pf_width_center_long}), again, in the same way as with the nonlongitudinal dataset: considering all cells from each FOV (including not tracked cells) and taking each FOV as independent from the rest.
+When considering all cells, the response profile width was not significantly different after CNO injection (Figure \ref{fig:chap4:pf_width_center_long} top left panel, Kolmogorov-Smirnov test, $p=0.62$).
+The distributions of response profile centers were significantly different (Figure \ref{fig:chap4:pf_width_center_long} top right panel, $p=0.009$).
+When considering the subset formed by only place cells and observing place field widths and centers (Figure \ref{fig:chap4:pf_width_center_long} bottom left and right panels, respectively), we observed a statistically significant increase in PF width ($p=8.8 \cdot 10^{-6}$) and a significant difference between PF center distributions ($p=0.001$).
+
+\begin{SCfigure}[][h]
+    \centering
+    \includegraphics[trim={0 0 450 0},clip,width=0.5\textwidth]{Figures/Chapter4/snake_plots_long_same_order.pdf}
+    \caption[Normalized calcium responses as a function of position for all tracked ROIs]{\textbf{Normalized calcium responses as a function of position for all tracked ROIs.} 
+    Left panel, responses from recordings in which the animal was injected with saline solution ordered according to the position of the center of the response field (from minimum to maximum). 
+    Center panel, responses from recordings in which the animal was injected with CNO solution, ordered as in left panel. 
+    Right panel, responses from recordings in which the animal was injected with saline solution after the CNO day, ordered as in left panel (n = 851 tracked ROIs, 6 imaging sessions from 6 FOVs, scale $= 50$ ROIs).}
+    \label{fig:chap4:snake_plots_long_same_order}
+\end{SCfigure}
 We then analyzed the effect of CNO injection \textbf{on the same cells}. 
 For this, we tracked cell identities belonging to the same FOV across days (see methods \ref{chap3:sec:5:long_tracking}).
-We first compared the MI values for each cell across days (Figure \ref{fig:chap4:MI_C_tracked_cells_longitudinal}).
+We computed the normalized calcium responses of all tracked ROIs with and without significant information content about space, for each of the 3 days of recordings (Figure \ref{fig:chap4:snake_plots_long_same_order}).
+In this latter case, because identities were tracked, and therefore each ROIs had a corresponding one in the following days, we could compare the change in response profile center for each day.
+We did so by computing the order according to the maximum response for the first day (saline 0) and maintaining the order for the CNO and Saline 1 days. 
+We observed that some cells maintained a similar response profile center in the following day while other do not. 
+The order got even more scrambled for the 3rd recording day. 
+This result is consistent with normal remapping of CA1 neurons as reported in literature [\cite{ziv2013}] and does not allow us to infer a causal relation with the CNO pharmacological manipulation.
+
+We compared the MI values for each cell across days (Figure \ref{fig:chap4:MI_C_tracked_cells_longitudinal}).
 The differences and results were heterogeneous and did not show statistically significant differences across days on average (Figure \ref{fig:chap4:MI_C_tracked_cells_longitudinal} right-most panel, Wilcoxon paired test with Bonferroni correction, saline 0 vs. CNO, $p=0.91$; saline 0 vs. saline 1, $p=0.91$; CNO vs. saline 1, $p=0.34$).
 Note that these values are a subset of the data shown in figure \ref{fig:chap4:MI_C_all_cells_longitudinal}, but here, each line represents one cell that has been tracked across all 3 days. 
+It is important to note that the paired analysis could not be done while considering only place cells because cells changed their state across days: e.g., some cells that were defined as place cells in the first day of saline were not in the CNO application day (consistently with what is reported in \cite{ziv2013}).
+
 \begin{figure}
     \centering
     \includegraphics[width=\textwidth]{Figures/Chapter4/MI_C_tracked_cells_longitudinal.pdf}

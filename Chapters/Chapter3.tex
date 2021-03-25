@@ -17,6 +17,7 @@ Only animals older than 10 weeks underwent experimental procedures.
 \subsection{AAV injection and surgery for chronic hippocampal imaging}
 \label{chap3:sec:1:subsec2:AAV_injection}
 Neuronal-specific GCaMP6f expression was obtained using AAV1.CamKII.GCaMP6f.WPRE.SV40 (Addgene viral prep \# 100834-AAV1).
+Astrocytic-specific GCaMP6f expression was obtained using pZac2.1 gfaABC1D-cyto-GCaMP6f (Addgene viral prep \# 52925-AAV5 a gift from Dr. Khakh, \cite{haustein2014conditions}; \cite{srinivasan2015}).
 Astrocytic-specific DREADD expression was obtained using AAV-GFAP-hM3D(Gq)-mCherry (Addgene viral prep \# 50478-AAV5)
 
 Male C57Bl6/j mice were placed into a stereotaxic apparatus (Stoelting Co, Wood Dale, IL), maintained on a warm platform at $37^{\circ}$C and anesthetized with 2\% isoflurane/0.8\% oxygen. 
@@ -111,12 +112,14 @@ At the end of each imaging session, animals were returned to their home cage.
 \label{chap3:sec:3:subsec1:linear-track-tracking}
 A custom virtual reality (VR) setup was design and implemented using Blender, an open source 3D creation suite (blender.org, version 2.78c). 
 VR was rendered with Blender Game Engine and displayed at a video rate of 60 Hz. 
-The VR environment was a linear corridor with lateral walls depicting three different white textures (vertical lines, mesh, and circles) on a black background. 
+The VR environment was a linear corridor with lateral walls depicting three different white textures (vertical lines, mesh, and circles) on a black background (see Figure \ref{fig:chap1:seba_1}A). 
 Extremes of the corridor were represented as green walls labeled with a black cross.
 The corridor was 180 cm long and 9 cm wide. 
 The animal was represented in the VR environment with a spherical avatar of radius 2 cm.
 To simulate touch-interactions with the environment, a touch sensor represented with a rectangular cuboid of dimensions ($x = 5, y = 1, z = 1 cm$) was included, protruding the animals avatar parallel to the corridor floor.
-Composite tiling of five thin-bezel led screens were used to project the avatars point of view in the VR environment ($220^{\circ}$ horizontal, $80^{\circ}$ vertical). 
+The avatar was used to emulate the real dimensions of the animal in the virtual environment and was never visible to him.
+Practically, when arriving to a location in the track (reward position, the end of the track or any other position) the animal saw that position at a $7 \ (5+2) \ cm$ distance.
+Composite tiling of five thin-bezel led screens were used to project the avatars point of view in the VR environment ($220^{\circ}$ horizontal, $80^{\circ}$ vertical) (see Figure \ref{fig:chap1:seba_1}A). 
 Mice could virtually navigate the environment by running on a custom 3D printed wheel (radius 8 cm, width 9 cm). 
 Motion was captured with an optical rotary encoder (Avago AEDB-9140-A14, Broadcom Inc., San Jose, CA), whose signal was converted into a serial mouse input by a single board microcontroller (Arduino Uno R3, Arduino, Ivrea, Italy). 
 Physical motion performed by the animal and measured by input devices was then mapped with a 1:1 correspondence to the virtual environment. 
@@ -155,7 +158,7 @@ CITE-on was a convolutional neural network-based algorithm for automatic online 
 The off-line cell identification suit was used on the median projection of the full length concatenated recordings.
 By using the median projection of the full motion corrected concatenated recordings, the amount of detected neurons was maximized.
 CITE-on implemented an image detector based on the publicly available convolutional neural network (CNN) RetinaNet [\cite{lin2020}].
-The output of the CNN image detection was a set of boxes tightly surrounding each detected cell soma, from here on called \textit{bounding boxes}.
+The output of the CNN image detection was a set of boxes tightly surrounding each detected neuronal soma, from here on called \textit{bounding boxes}.
 Coordinates and identity of the bounding boxes were saved and used in the following steps. 
 Because the motion correction was performed across t-series and the median projection was calculated on the full-length recording, the coordinates and identities of the bounding boxes were preserved across frames and t-series and did not require any adjustment or tracking across frames. 
 CITE-on required an upscaling factor that depended on the ratio between the FOV surface and the average surface of the neuronal somata. 
@@ -174,14 +177,15 @@ All cells that had not a matching identity between first and second day and/or f
 % =========================================================== %
 \section{Trace extraction}
 \label{chap3:sec:5:trace_extraction}
-After cell identification, the following step to infere neuronal activity consisted in extracting functional calcium traces from identified cells. 
+After cell identification, the following step to infer neuronal activity consisted in extracting functional calcium traces from identified cells. 
 This was achieved using the algorithm CaImAn, a popular state-of-the-art method based on Constrained Non-Negative Matrix Factorization (CNMF) [\cite{giovannucci2019}].
 We used the bounding boxes generated offline by CITE-On to build binary masks that were used as seeds to initialize the seeded-CNMF algorithm.
 Seeded-CNMF calculated first the temporal background component of the recording using pixels that were not included in any mask. This background component was later subtracted from each neuronal factor. 
 It represented the background noise shared across all signals, including the neuropil activity.
-The seeded-CNMF algorithm then estimated temporal components and spatial footprints, constrained to be non-zero only at the location where the binary masks were positioned.
-Parameters for seeded-CNMF were explored and tuned manually. Specifically: the number of global background components was 2; no merging was performed; the number of components per patch was $= 4$ ; the expected half size of neurons in pixels was $= (7,7)$; no spatial or temporal subsampling was performed.
-Finally, for each component the $\Delta F/F_0$ was computed with the CaImAn \textbf{detrend\_df\_f} function (see \cite{giovannucci2019}), using the $50^{th}$ quantile as baseline and a 2000 frames running window to compute quantiles.  
+The seeded-CNMF algorithm then estimated the temporal component and spatial footprint for each bounding box, constrained to be non-zero only at the location where the binary masks were positioned.
+Parameters for seeded-CNMF were explored and tuned manually. Specifically: the number of global background components was 2; no merging was performed; the expected half size of neurons in pixels was $= (7,7)$; no spatial or temporal subsampling was performed.
+Finally, for each component the $\Delta F/F_0$ was computed with the CaImAn \textbf{detrend\_df\_f} function (see \cite{giovannucci2019}), using the $50^{th}$ quantile as baseline and a 2000 frames running window to compute quantiles.
+At the end of the trace extraction procedure a spatial footprint and a temporal $\Delta F/F_0$ trace was obtained per bounding box.
 
 The combination of off-line CITE-on and CaImAn presented several advantages for the analysis of our dataset.
 Off-line CITE-on localized putative neurons considering only anatomical aspect, regardless of their activity profile.
@@ -196,7 +200,7 @@ For each component obtained after trace extraction, statistically significant ca
 Briefly, the standard deviation $\sigma_1$ of the signal was computed and points with absolute value larger than $\sigma_1$ were removed from the trace. 
 This procedure automatically excluded large transients.
 Then, the standard deviation, $\sigma_2$, of the resulting trace was computed. 
-Fluorescence transients were identified as events that:
+Fluorescence transients were identified as events in the original $\Delta F/F_0$ that:
 %\renewcommand{\labelenumi}{\roman{enumi}}
 \begin{enumerate}[label=\roman*)]
     \item were bigger in absolute value than $3\ \sigma_2$ 
@@ -207,7 +211,9 @@ False discovery rate was defined as:
 \begin{equation}
     FDR = \frac{N_{E_n}}{N_{E_p}+N_{E_n}}
 \end{equation}
-where $N_{E_p}$ and $N_{E_n}$ were the numbers of identified positive and negative deflections of the $\Delta F/F_0$ trace, respectively. 
+where $N_{E_p}$ and $N_{E_n}$ were the numbers of identified positive and negative deflections of the $\Delta F/F_0$ trace, respectively.
+As described in \cite{dombeck2007}, out-of-plane motion would be expected to cause an equal number of positive and negative false fluorescence transients.
+With this procedure we reduce the number of positive deflection detected as events due to out-of-plane motion, which should be similar in number to the negative ones.
 An \textbf{event trace} could be obtained by setting all fluorescent values from the $\Delta F/F_0$ trace that did not belong to a positive event to 0. 
 We called such trace the \textit{event trace}.
 
@@ -226,8 +232,8 @@ Only instants in which the animal was running at a speed $> 1 cm/s$ were conside
 % The length of the virtual corridor was binned (number of spatial bins, 80; bin width, 2.25 cm). 
 The virtual corridor was binned using 81 equally spaced bins and the occupancy map was calculated for each animal. 
 The occupancy map represented the total amount of time spent in each spatial bin. 
-The activity map was then computed for each ROI as the average fluorescence value in each spatial bin. 
-The sum of both the activity and the occupancy maps were normalized to 1 and convolved with a Gaussian kernel with a width of 3 spatial bins. 
+The activity map was then computed for each ROI as the average fluorescence value from the event trace in each spatial bin. 
+Both the activity and the occupancy maps were independently normalized to sum 1 and convolved with a Gaussian kernel with a width of 3 spatial bins. 
 We defined the response profile of a ROI (RP) as the ratio of its activity map over the occupancy map. 
 For each RP, we defined and computed a response field (RF) as follows: 
 \begin{enumerate}[label=\roman*)]
@@ -252,7 +258,8 @@ For each RP, we defined and computed a response field (RF) as follows:
         RF = a_i\exp{\frac{-(x-c_i)^2}{2\sigma_i^2}} \quad \text{with} \quad  i=argmax(A)
     \end{equation}
 \end{enumerate}
-
+In this way we considered only the main response area of each neuron and, in the case of place cells, the main place field [\cite{turi2019vasoactive}].
+Other properties of neuronal activity such as secondary peaks were not included in the analysis, however no hypothesis was done on the firing profile of the neurons analyzed, meaning that neurons with complex or noisy response profiles were studied by only looking at their main area of response.
 \subsection{Place cells analysis}
 \label{chap3:sec:7:subsec2:pc_analysis}
 Only periods in which the animal running speed was $> 1 cm/s$ were used to analyze the spatial modulation of neuronal cell activity. 
@@ -276,19 +283,23 @@ Importantly, this surrogate method preserved many features of the trace, such as
 This procedure was perform 1000 times for each ROI to build the null distribution of mutual information values.
 A cell whose mutual information value was higher than the $95^{th}$ percentile of the null distribution was considered a \textbf{place cell}. 
 
+It is important to note that with this definition, cells with multi-modal, or more complex response profiles could also be detected as place cells.
+The use of mutual information to detect place cells has been widely used and represents a model free notion of place cell that we preferred to other more post-hoc alternatives, e.g. using width, amplitude, reliability or other properties of response profiles.
+
 \subsection{Bias correction and parameter selection}
 \label{chap3:sec:7:subsec3:bias_correction}
 As mentioned in the introduction (see section \ref{chap1:sec:3:subsec1:information_theory}), using an empirical probability distribution as approximation of the true underlying probability distribution produced biased values of mutual information (MI). 
 The contribution of the bias to the MI value strongly depended on how we binned the variables; higher number of bins better described the data but produces bins with less counts and therefore worst estimates of their probabilities. 
 To account for this bias, we first computed the parameter: 
 \begin{equation}
+    \label{eqn:NsR}
     NsR = log_2(\frac{N_s}{R})
 \end{equation}
 with $N_s$ being the average number of counts in position bins, and $R$ the number of stimulus bins (that is the amount of steps in which we binned calcium intensities).
 $NsR$ gave a quantitative measure of how well we could estimate the probability distributions: the larger it is, the smaller the bias. 
 We considered $NsR=3$ as a conservative threshold, above which the description quality was good.
 For each recording, we calculated $NsR$ for different number of intensity bins ($r_{bins} = [2,3,4,5,8,10,20]$) and position bins ($s_{bins} = [4,8,12,16,20,24,40,60,80,100,160]$).
-We then calculated the contribution of the bias for each ROI as the mean of the null distribution, using the surrogate distribution described in the previous section. 
+We then calculated the contribution of the bias for each ROI as the mean of the null distribution, that is, the mean of the MI values calculated between position and surrogate responses obtained by shuffling as described in the previous section. 
 The \textbf{unbiased value of MI} was thus defined as the MI value calculated as in equation \ref{eqn:mutualinfoPF} minus the bias:
 \begin{equation}
     \label{eqn:unbias_mutualinfo}
